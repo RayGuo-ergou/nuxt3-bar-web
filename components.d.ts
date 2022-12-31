@@ -15,6 +15,7 @@ declare module '@vue/runtime-core' {
     'IconIc:baselineContentCopy': typeof import('~icons/ic/baseline-content-copy')['default']
     'IconLa:language': typeof import('~icons/la/language')['default']
     'IconMaterialSymbols:contentCopyOutline': typeof import('~icons/material-symbols/content-copy-outline')['default']
+    IconMaterialSymbolsDensityMediumRounded: typeof import('~icons/material-symbols/density-medium-rounded')['default']
     'IconMdi:checkCircle': typeof import('~icons/mdi/check-circle')['default']
     'IconMdi:githubFace': typeof import('~icons/mdi/github-face')['default']
     IconMdiAbTesting: typeof import('~icons/mdi/ab-testing')['default']

@@ -73,13 +73,25 @@ export default defineConfig({
   },
   theme: {
     extend: {
+      animation: {
+        'spin-slow': 'wiggle 2s',
+      },
+
+      keyframes: {
+        wiggle: {
+          '0%': { transform: 'rotate(0deg)' },
+          '25%': { transform: 'rotate(-30deg)' },
+          '50%': { transform: 'rotate(30deg)' },
+          '100%': { transform: 'rotate(0deg)' },
+        },
+      },
       maxWidth: {
         '8xl': '90rem',
       },
       colors: {
-        primary: MyTheme.colors.green,
+        // primary: MyTheme.colors.green,
         // if want to change primary color to blue
-        // primary: MyTheme.colors.blue,
+        primary: MyTheme.colors.blue,
         green: MyTheme.colors.green,
         blue: MyTheme.colors.blue,
         red: MyTheme.colors.red,

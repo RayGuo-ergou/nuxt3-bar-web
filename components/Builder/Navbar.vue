@@ -4,6 +4,7 @@ import { AppConfigInput } from '@nuxt/schema'
 // state
 const app = useAppConfig() as AppConfigInput
 const navbar = ref(null)
+const navBtnClick = ref(false)
 const showDrawer = useState<boolean>('navbar.showDrawer', () => false)
 const showOptions = useState<boolean>('navbar.showOptions', () => false)
 
@@ -40,6 +41,7 @@ const updateDrawerOptions = () => {
 }
 const toggleDrawer = () => (showDrawer.value = !showDrawer.value)
 const toggleOptions = (show?: boolean) => {
+  navBtnClick.value = !navBtnClick.value
   if (show) {
     showOptions.value = show
   } else {
@@ -103,6 +105,7 @@ const toggleOptions = (show?: boolean) => {
           >
             <button
               class="flex items-center focus:outline-none"
+              :class="navBtnClick ? 'animate-spin-slow' : ''"
               aria-label="Toggle Options Menu"
               @click="toggleOptions()"
             >
@@ -110,7 +113,7 @@ const toggleOptions = (show?: boolean) => {
                 class="flex items-center text-gray-600 dark:text-gray-300 text-sm"
                 aria-hidden="true"
               >
-                <icon-fa-solid:ellipsis-v />
+                <IconMaterialSymbolsDensityMediumRounded />
               </span>
             </button>
           </div>
