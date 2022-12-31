@@ -74,7 +74,7 @@ export default defineNuxtConfig({
     vueI18n: {
       locale: 'en',
       fallbackLocale: 'en',
-      availableLocales: ['en', 'id', 'ja', 'ko'],
+      availableLocales: ['en', 'zh'],
     },
   },
 

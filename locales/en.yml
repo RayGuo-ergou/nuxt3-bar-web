@@ -63,6 +63,26 @@ pages:
     index:
       nav: home
       title: home
+
+  nights:
+    nav: nights
+    title: nights
+
+  contact:
+    nav: contact
+    title: contact
+
+  about:
+    nav: about
+    title: about
+
+  events:
+    nav: events
+    title: events
+
+  join-us:
+    nav: join-us
+    title: join-us
 banners:
   welcome: hello, welcome to %{app_name}!
 others:

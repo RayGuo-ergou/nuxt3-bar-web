@@ -13,37 +13,34 @@ const app = useAppConfig() as AppConfigInput
 const menus = computed((): IMenuItem[] => [
   {
     type: 'link',
-    text: t('pages.getting-started.nav'),
-    route: { name: 'getting-started' },
+    text: t('pages.nights.nav'),
+    route: { name: 'nights' },
   },
-  { type: 'link', text: t('pages.blank.nav'), route: { name: 'blank' } },
-  { type: 'link', text: t('pages.test.nav'), route: { name: 'test' } },
-  { type: 'link', text: t('pages.post.nav'), route: { name: 'post' } },
-  { type: 'link', text: t('pages.setting.nav'), route: { name: 'setting' } },
   {
-    type: 'button',
-    text: t('pages.dashboard.nav'),
-    route: { name: 'dashboard' },
+    type: 'link',
+    text: t('pages.events.nav'),
+    route: { name: 'events' },
+  },
+  {
+    type: 'link',
+    text: t('pages.contact.nav'),
+    route: { name: 'contact' },
+  },
+  {
+    type: 'link',
+    text: t('pages.about.nav'),
+    route: { name: 'about' },
+  },
+  {
+    type: 'link',
+    text: t('pages.join-us.nav'),
+    route: { name: 'join-us' },
   },
 ])
 </script>
 
 <template>
   <BuilderNavbar>
-    <template #banner>
-      <div
-        class="text-white text-xs text-center py-1 px-4 lg:px-8 bg-primary-500 capitalize"
-      >
-        <span class="mr-1">
-          {{ $t('banners.welcome', { app_name: app.name }) }}
-          <Anchor
-            class="underline font-bold"
-            :text="$t('others.learn_more')"
-            href="https://github.com/viandwi24/nuxt3-awesome-starter"
-          />
-        </span>
-      </div>
-    </template>
     <template #menu>
       <div class="relative hidden lg:flex items-center ml-auto">
         <nav

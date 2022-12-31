@@ -63,6 +63,26 @@ pages:
     index:
       nav: 主页
       title: 主页
+
+  nights:
+    nav: 晚上
+    title: 晚上
+
+  contact:
+    nav: 联系我们
+    title: 联系我们
+
+  about:
+    nav: 关于我们
+    title: 关于我们
+
+  events:
+    nav: 活动
+    title: 活动
+
+  join-us:
+    nav: 加入我们
+    title: 加入我们
 banners:
   welcome: 你好, 欢迎来到 %{app_name}!
 others:
