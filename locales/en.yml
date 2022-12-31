@@ -81,8 +81,8 @@ pages:
     title: events
 
   join-us:
-    nav: join-us
-    title: join-us
+    nav: join us
+    title: join us
 banners:
   welcome: hello, welcome to %{app_name}!
 others:

@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+import { UseElementVisibility } from '@vueuse/components'
 // compiler macro
 definePageMeta({
   layout: 'page',
@@ -15,7 +16,15 @@ useHead(() => ({
     </PageHeader>
     <PageBody>
       <PageSection>
-        <div>PAGE_BODY</div>
+        <div style="padding-bottom: 2000px">PAGE_BODY</div>
+        <UseElementVisibility v-slot="{ isVisible }">
+          <div
+            :class="isVisible ? 'animate-spin animate-repeat-1' : ''"
+            class=""
+          >
+            Is Visible: {{ isVisible }}
+          </div>
+        </UseElementVisibility>
       </PageSection>
     </PageBody>
   </PageWrapper>
