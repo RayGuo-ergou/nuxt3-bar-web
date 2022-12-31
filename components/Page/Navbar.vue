@@ -72,13 +72,6 @@ const menus = computed((): IMenuItem[] => [
         >
           <LanguageSwitcher />
           <ThemeSwitcher />
-          <Anchor
-            class="hover:no-underline hover:text-slate-900 hover:dark:text-white text-lg flex self-center items-center"
-            href="https://github.com/viandwi24/nuxt3-awesome-starter"
-            title="Github"
-          >
-            <IconMdi:github-face />
-          </Anchor>
         </div>
       </div>
     </template>
