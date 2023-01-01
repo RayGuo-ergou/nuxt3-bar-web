@@ -58,6 +58,7 @@ const MyTheme = {
 }
 module.exports = {
   darkMode: 'class', // or 'media' or 'class'
+  mode: 'jit',
   content: [
     './components/**/*.{vue,js}',
     './composables/**/*.{js,ts}',
@@ -67,6 +68,7 @@ module.exports = {
     './plugins/**/*.{js,ts}',
     './utils/**/*.{js,ts}',
     './app.vue',
+    './node_modules/flowbite/**/*.js',
   ],
   theme: {
     extend: {
@@ -106,6 +108,6 @@ module.exports = {
     require('tailwindcss-animate'),
     require('@tailwindcss/typography'),
     require('@tailwindcss/aspect-ratio'),
-    require('daisyui'),
+    require('flowbite/plugin'),
   ],
 }
