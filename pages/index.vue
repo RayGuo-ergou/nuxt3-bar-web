@@ -2,11 +2,6 @@
 // composable
 const { t } = useLang()
 
-// meta
-// definePageMeta({
-//   layout: 'page',
-// })
-
 // vars
 const titlesText = computed<string[]>(() => t('pages.index.title').split('[]'))
 const leadingsText = computed(() => [
@@ -41,6 +36,7 @@ const leadingsText = computed(() => [
         muted
         loop
         disablePictureInPicture
+        playsinline
       ></video>
     </template>
     <PageWrapper>
