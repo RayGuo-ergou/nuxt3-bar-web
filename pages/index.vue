@@ -1,7 +1,4 @@
-<script lang="ts" setup>
-// composable
-const { t } = useLang()
-</script>
+<script lang="ts" setup></script>
 
 <template>
   <NuxtLayout name="page">
