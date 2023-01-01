@@ -5,7 +5,6 @@
     "strict": true,
     "skipLibCheck": true,
     "types": [
-      "nuxt-windicss",
       "@vueuse/nuxt",
       "@intlify/nuxt3",
       "@pinia/nuxt",

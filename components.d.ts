@@ -13,6 +13,8 @@ declare module '@vue/runtime-core' {
     'IconClarity:timesLine': typeof import('~icons/clarity/times-line')['default']
     'IconFaSolid:ellipsisV': typeof import('~icons/fa-solid/ellipsis-v')['default']
     'IconIc:baselineContentCopy': typeof import('~icons/ic/baseline-content-copy')['default']
+    IconIcBaselineArrowBackIosNew: typeof import('~icons/ic/baseline-arrow-back-ios-new')['default']
+    IconIcBaselineArrowForwardIos: typeof import('~icons/ic/baseline-arrow-forward-ios')['default']
     'IconLa:language': typeof import('~icons/la/language')['default']
     'IconMaterialSymbols:contentCopyOutline': typeof import('~icons/material-symbols/content-copy-outline')['default']
     IconMaterialSymbolsDensityMediumRounded: typeof import('~icons/material-symbols/density-medium-rounded')['default']

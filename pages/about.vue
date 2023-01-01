@@ -18,10 +18,7 @@ useHead(() => ({
       <PageSection>
         <div style="padding-bottom: 2000px">PAGE_BODY</div>
         <UseElementVisibility v-slot="{ isVisible }">
-          <div
-            :class="isVisible ? 'animate-spin animate-repeat-1' : ''"
-            class=""
-          >
+          <div :class="isVisible ? 'animate-spin repeat-1' : ''" class="">
             Is Visible: {{ isVisible }}
           </div>
         </UseElementVisibility>

@@ -1,50 +1,19 @@
 <script lang="ts" setup>
 // composable
 const { t } = useLang()
-
-// vars
-const titlesText = computed<string[]>(() => t('pages.index.title').split('[]'))
-const leadingsText = computed(() => [
-  {
-    text: titlesText.value[0],
-    startColor: '#007CF0',
-    endColor: '#00DFD8',
-    delay: 0,
-  },
-  {
-    text: titlesText.value[1],
-    startColor: '#7928CA',
-    endColor: '#FF0080',
-    delay: 2,
-  },
-  {
-    text: titlesText.value[2],
-    startColor: '#FF4D4D',
-    endColor: '#F9CB28',
-    delay: 4,
-  },
-])
 </script>
 
 <template>
   <NuxtLayout name="page">
     <template #cover>
-      <video
-        class="w-full h-auto"
-        src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4"
-        autoplay
-        muted
-        loop
-        disablePictureInPicture
-        playsinline
-      ></video>
+      <PageHomeBanner />
     </template>
     <PageWrapper>
       <PageHeader>
         <PageTitle text="abc" />
       </PageHeader>
       <PageBody>
-        <PageSection><p>11111</p> </PageSection>
+        <PageSection><p style="padding-bottom: 2000px">11111</p> </PageSection>
       </PageBody>
     </PageWrapper>
   </NuxtLayout>
