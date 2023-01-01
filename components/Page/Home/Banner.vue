@@ -21,18 +21,26 @@
       </div>
       <!-- Item 2 -->
       <div class="hidden duration-700 ease-in-out" data-carousel-item>
-        <img
-          src="/docs/images/carousel/carousel-2.svg"
-          class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-          alt="..."
+        <video
+          class="w-full h-auto z-0"
+          src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4"
+          autoplay
+          muted
+          loop
+          disablePictureInPicture
+          playsinline
         />
       </div>
       <!-- Item 3 -->
       <div class="hidden duration-700 ease-in-out" data-carousel-item>
-        <img
-          src="/docs/images/carousel/carousel-3.svg"
-          class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-          alt="..."
+        <video
+          class="w-full h-auto z-0"
+          src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4"
+          autoplay
+          muted
+          loop
+          disablePictureInPicture
+          playsinline
         />
       </div>
     </div>
