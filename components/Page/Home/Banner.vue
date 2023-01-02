@@ -1,41 +1,22 @@
-<!-- TODO: use v-for then adjust the color and size -->
 <template>
   <div id="default-carousel" class="relative" data-carousel="static">
     <!-- Carousel wrapper -->
-    <div class="relative h-0 overflow-hidden rounded-lg pb-[56.25%]">
-      <!-- Item 1 -->
-      <div class="hidden duration-700 ease-in-out" data-carousel-item>
+    <div class="relative h-0 overflow-hidden pb-[56.25%]">
+      <!-- Item -->
+      <div
+        v-for="item in items"
+        :key="item.title"
+        class="hidden duration-700 ease-in-out"
+        data-carousel-item
+      >
         <span
           class="absolute text-2xl font-semibold text-white -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 sm:text-3xl dark:text-gray-800"
-          >First Slide</span
+        >
+          {{ item.title }}</span
         >
         <video
           class="w-full h-auto z-0"
-          src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4"
-          autoplay
-          muted
-          loop
-          disablePictureInPicture
-          playsinline
-        />
-      </div>
-      <!-- Item 2 -->
-      <div class="hidden duration-700 ease-in-out" data-carousel-item>
-        <video
-          class="w-full h-auto z-0"
-          src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4"
-          autoplay
-          muted
-          loop
-          disablePictureInPicture
-          playsinline
-        />
-      </div>
-      <!-- Item 3 -->
-      <div class="hidden duration-700 ease-in-out" data-carousel-item>
-        <video
-          class="w-full h-auto z-0"
-          src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4"
+          :src="item.src"
           autoplay
           muted
           loop
@@ -49,25 +30,13 @@
       class="absolute z-30 flex space-x-3 -translate-x-1/2 bottom-5 left-1/2"
     >
       <button
+        v-for="(item, index) in items"
+        :key="index"
         type="button"
         class="w-3 h-3 rounded-full"
         aria-current="false"
-        aria-label="Slide 1"
-        data-carousel-slide-to="0"
-      ></button>
-      <button
-        type="button"
-        class="w-3 h-3 rounded-full"
-        aria-current="false"
-        aria-label="Slide 2"
-        data-carousel-slide-to="1"
-      ></button>
-      <button
-        type="button"
-        class="w-3 h-3 rounded-full"
-        aria-current="false"
-        aria-label="Slide 3"
-        data-carousel-slide-to="2"
+        :aria-label="`Slide ${index + 1}`"
+        :data-carousel-slide-to="index"
       ></button>
     </div>
     <!-- Slider controls -->
@@ -92,14 +61,13 @@
             stroke-linejoin="round"
             stroke-width="2"
             d="M15 19l-7-7 7-7"
-          ></path>
+          />
         </svg>
-        <span class="sr-only">Previous</span>
       </span>
     </button>
     <button
       type="button"
-      class="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+      class="absolute top-0 right-0 z-30 flex items-center h-full px-4 cursor-pointer group focus:outline-none"
       data-carousel-next
     >
       <span
@@ -118,10 +86,30 @@
             stroke-linejoin="round"
             stroke-width="2"
             d="M9 5l7 7-7 7"
-          ></path>
+          />
         </svg>
-        <span class="sr-only">Next</span>
       </span>
     </button>
   </div>
 </template>
+
+<script lang="ts" setup>
+const items = ref([
+  {
+    src: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4',
+    title: 'First Slide',
+  },
+  {
+    src: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4',
+    title: 'Second Slide',
+  },
+  {
+    src: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4',
+    title: 'Third Slide',
+  },
+  {
+    src: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4',
+    title: 'Fourth Slide',
+  },
+])
+</script>
