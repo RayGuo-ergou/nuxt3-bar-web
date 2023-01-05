@@ -26,7 +26,7 @@ function greet() {
     </section>
     <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
     <section
-      class="px-4 py-6 pt-0 bg-gray-100 dark:bg-gray-900 md:flex md:items-center md:justify-between"
+      class="px-4 py-6 pt-0 bg-gray-100 dark:bg-gray-900 md:flex md:items-center md:justify-around"
     >
       <span class="text-sm text-gray-500 dark:text-gray-300 sm:text-center"
         >© 2023
