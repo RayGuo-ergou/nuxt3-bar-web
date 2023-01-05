@@ -97,8 +97,6 @@
 // Pbly because of the client only plugin for flowbite
 // TODO: wait for nuxt and flowbit to support ssr
 // @ts-nocheck
-import flowbite from 'flowbite'
-import type { CarouselItem, CarouselOptions, CarouselInterface } from 'flowbite'
 
 const videos = [
   {
@@ -119,12 +117,12 @@ const videos = [
   },
 ]
 onMounted(() => {
-  const carouselItems: CarouselItem[] = videos.map((video, index) => ({
+  const carouselItems = videos.map((video, index) => ({
     position: index,
     el: document.getElementById(`carousel-item-${index + 1}`),
   }))
 
-  const options: CarouselOptions = {
+  const options = {
     defaultPosition: 1,
     interval: 3000,
 
@@ -138,10 +136,7 @@ onMounted(() => {
       })),
     },
   }
-  const carousel: CarouselInterface = new flowbite.Carousel(
-    carouselItems,
-    options
-  )
+  const carousel = new Carousel(carouselItems, options)
 
   carousel.cycle()
 
