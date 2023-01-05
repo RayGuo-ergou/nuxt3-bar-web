@@ -82,13 +82,10 @@ const toggleOptions = (show?: boolean) => {
           </div>
           <!-- title -->
           <slot name="title">
-            <!-- XXX when video Carousel render again, it will disappear, so add external=true to workaround -->
-            <!-- Pbly because of the client only plugin for flowbite -->
             <NuxtLink
               tag="a"
               class="mr-3 flex-none overflow-hidden md:w-auto text-md font-bold text-gray-900 dark:text-gray-200"
               :to="{ name: 'index' }"
-              external
             >
               <span class="sr-only">home</span>
               <span class="flex items-center">

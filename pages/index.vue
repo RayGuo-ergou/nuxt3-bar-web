@@ -3,7 +3,9 @@
 <template>
   <NuxtLayout name="page">
     <template #cover>
-      <PageHomeBanner />
+      <ClientOnly>
+        <PageHomeBanner />
+      </ClientOnly>
     </template>
     <ClientOnly>
       <PageHomeModal />

@@ -1,55 +1,53 @@
 <template>
-  <div id="default-carousel" class="relative" data-carousel="static">
+  <div class="relative">
     <!-- Carousel wrapper -->
     <div class="relative h-0 overflow-hidden pb-[56.25%]">
-      <!-- Item -->
-      <div
-        v-for="item in items"
-        :key="item.title"
-        class="hidden duration-700 ease-in-out"
-        data-carousel-item
-      >
-        <span
-          class="absolute text-2xl font-semibold text-white -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 sm:text-3xl dark:text-gray-800"
+      <!-- Items -->
+      <template v-for="(video, index) in videos" :key="video.title">
+        <div
+          :id="`carousel-item-${index + 1}`"
+          class="hidden duration-700 ease-in-out"
         >
-          {{ item.title }}</span
-        >
-        <video
-          class="w-full h-auto z-0"
-          :src="item.src"
-          autoplay
-          muted
-          loop
-          disablePictureInPicture
-          playsinline
-        />
-      </div>
+          <span
+            class="absolute text-2xl font-semibold text-white -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 sm:text-3xl dark:text-gray-800"
+            >{{ video.title }}</span
+          >
+          <video
+            class="w-full h-auto z-0"
+            :src="video.src"
+            autoplay
+            muted
+            loop
+            disablePictureInPicture
+            playsinline
+          />
+        </div>
+      </template>
     </div>
     <!-- Slider indicators -->
     <div
       class="absolute z-30 flex space-x-3 -translate-x-1/2 bottom-5 left-1/2"
     >
-      <button
-        v-for="(item, index) in items"
-        :key="index"
-        type="button"
-        class="w-3 h-3 rounded-full"
-        aria-current="false"
-        :aria-label="`Slide ${index + 1}`"
-        :data-carousel-slide-to="index"
-      ></button>
+      <template v-for="(video, index) in videos" :key="video.src">
+        <button
+          :id="`carousel-indicator-${index + 1}`"
+          type="button"
+          class="w-3 h-3 rounded-full"
+          :aria-current="index === 0"
+          :aria-label="`Slide ${index + 1}`"
+        ></button>
+      </template>
     </div>
     <!-- Slider controls -->
     <button
+      id="data-carousel-prev"
       type="button"
       class="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
-      data-carousel-prev
     >
       <span
         class="inline-flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none"
       >
         <svg
-          aria-hidden="true"
           class="w-5 h-5 text-white sm:w-6 sm:h-6 dark:text-gray-800"
           fill="none"
           stroke="currentColor"
@@ -61,20 +59,20 @@
             stroke-linejoin="round"
             stroke-width="2"
             d="M15 19l-7-7 7-7"
-          />
+          ></path>
         </svg>
+        <span class="hidden">Previous</span>
       </span>
     </button>
     <button
+      id="data-carousel-next"
       type="button"
-      class="absolute top-0 right-0 z-30 flex items-center h-full px-4 cursor-pointer group focus:outline-none"
-      data-carousel-next
+      class="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
     >
       <span
         class="inline-flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none"
       >
         <svg
-          aria-hidden="true"
           class="w-5 h-5 text-white sm:w-6 sm:h-6 dark:text-gray-800"
           fill="none"
           stroke="currentColor"
@@ -86,30 +84,88 @@
             stroke-linejoin="round"
             stroke-width="2"
             d="M9 5l7 7-7 7"
-          />
+          ></path>
         </svg>
+        <span class="hidden">Next</span>
       </span>
     </button>
   </div>
 </template>
 
 <script lang="ts" setup>
-const items = ref([
+// XXX when video Carousel render again, it will disappear, use client side render as a workaround
+// Pbly because of the client only plugin for flowbite
+// TODO: wait for nuxt and flowbit to support ssr
+// @ts-nocheck
+import flowbite from 'flowbite'
+import type { CarouselItem, CarouselOptions, CarouselInterface } from 'flowbite'
+
+const videos = [
   {
-    src: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4',
     title: 'First Slide',
+    src: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4',
   },
   {
-    src: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4',
     title: 'Second Slide',
+    src: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4',
   },
   {
-    src: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4',
     title: 'Third Slide',
+    src: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4',
   },
   {
-    src: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4',
     title: 'Fourth Slide',
+    src: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4',
   },
-])
+]
+onMounted(() => {
+  const carouselItems: CarouselItem[] = videos.map((video, index) => ({
+    position: index,
+    el: document.getElementById(`carousel-item-${index + 1}`),
+  }))
+
+  const options: CarouselOptions = {
+    defaultPosition: 1,
+    interval: 3000,
+
+    indicators: {
+      activeClasses: 'bg-white dark:bg-gray-800',
+      inactiveClasses:
+        'bg-white/50 dark:bg-gray-800/50 hover:bg-white dark:hover:bg-gray-800',
+      items: videos.map((video, index) => ({
+        position: index,
+        el: document.getElementById(`carousel-indicator-${index + 1}`),
+      })),
+    },
+
+    // callback functions
+    onNext: () => {
+      console.log('next slider item is shown')
+    },
+    onPrev: () => {
+      console.log('previous slider item is shown')
+    },
+    onChange: () => {
+      console.log('new slider item has been shown')
+    },
+  }
+  const carousel: CarouselInterface = new flowbite.Carousel(
+    carouselItems,
+    options
+  )
+
+  carousel.cycle()
+
+  // set event listeners for prev and next buttons
+  const $prevButton = document.getElementById('data-carousel-prev')
+  const $nextButton = document.getElementById('data-carousel-next')
+
+  $prevButton?.addEventListener('click', () => {
+    carousel.prev()
+  })
+
+  $nextButton?.addEventListener('click', () => {
+    carousel.next()
+  })
+})
 </script>
