@@ -5,6 +5,7 @@
     <template #cover>
       <PageHomeBanner />
     </template>
+    <PageHomeModal />
     <PageWrapper>
       <PageHeader>
         <PageTitle text="abc" />
