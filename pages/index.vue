@@ -5,7 +5,9 @@
     <template #cover>
       <PageHomeBanner />
     </template>
-    <PageHomeModal />
+    <ClientOnly>
+      <PageHomeModal />
+    </ClientOnly>
     <PageWrapper>
       <PageHeader>
         <PageTitle text="abc" />

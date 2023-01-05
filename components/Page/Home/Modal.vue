@@ -1,9 +1,12 @@
 <script lang="ts" setup>
-const show = ref(true)
+import { useLocalStorage } from '@vueuse/core'
 
+const show = useLocalStorage('modalShow', true)
 // set document overflow to hidden when modal is open
 onMounted(() => {
-  document.body.style.overflow = 'hidden'
+  if (show.value) {
+    document.body.style.overflow = 'hidden'
+  }
 })
 
 const close = () => {
