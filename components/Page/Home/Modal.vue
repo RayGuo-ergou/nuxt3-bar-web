@@ -21,7 +21,7 @@ const close = () => {
     ></div>
     <!-- Main modal -->
     <div
-      class="fixed top-2/4 left-2/4 z-50 p-4 overflow-x-hidden overflow-y-auto -translate-x-2/4 -translate-y-2/4"
+      class="fixed p-4 overflow-x-hidden z-50 overflow-y-auto -translate-y-1/3 lg:top-2/4 lg:left-2/4 lg:-translate-x-2/4 lg:-translate-y-2/4"
     >
       <div class="relative w-full h-full max-w-2xl md:h-auto">
         <!-- Modal content -->

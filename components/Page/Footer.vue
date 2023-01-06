@@ -12,7 +12,7 @@ function greet() {
   <footer class="border-t p-4 lg:border-gray-900/10 dark:border-gray-50/[0.2]">
     <section class="bg-white dark:bg-gray-900">
       <div class="flex flex-col lg:flex-row">
-        <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
+        <div class="pt-3 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
           <div class="mb-1">{{ app.name }} LOGO</div>
           <div class="text-teal-600 dark:text-teal-300">
             <svg
