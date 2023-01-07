@@ -12,10 +12,12 @@
     </ClientOnly>
     <PageWrapper>
       <PageHeader>
-        <PageTitle text="abc" />
+        <PageTitle text="Some title(Place Holder)" class="text-center" />
       </PageHeader>
       <PageBody>
-        <PageSection><p style="padding-bottom: 2000px">11111</p> </PageSection>
+        <PageSection>
+          <PageHomeIntro />
+        </PageSection>
       </PageBody>
     </PageWrapper>
   </NuxtLayout>
