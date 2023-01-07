@@ -8,11 +8,11 @@ definePageMeta({
   layout: 'page',
 })
 
-const buttons = [
+const items = [
   {
-    text: 'Upcoming events',
-    color: 'primary',
-    variant: 'solid',
+    url: 'https://images.unsplash.com/photo-1558981806-ec527fa84c39?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80',
+    title: 'upcoming event',
+    description: 'Description1',
     onClick: async () => {
       showList.value = true
       tab.value = 'new'
@@ -24,9 +24,9 @@ const buttons = [
     },
   },
   {
-    text: 'Past events',
-    color: 'primary',
-    variant: 'solid',
+    url: 'https://images.unsplash.com/photo-1558981806-ec527fa84c39?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80',
+    title: 'past events',
+    description: 'Description2',
     onClick: async () => {
       showList.value = true
       tab.value = 'old'
@@ -43,7 +43,7 @@ const buttons = [
 <template>
   <div>
     <!-- <Banner :buttons="buttons" /> -->
-    <PageEventsBanner />
+    <PageEventsBanner :items="items" />
     <div
       class="mx-auto max-w-7xl w-full h-full"
       :class="[showList ? 'min-h-[500px]' : '']"
