@@ -42,13 +42,18 @@ const buttons = [
 
 <template>
   <div>
-    <Banner :buttons="buttons" />
+    <!-- <Banner :buttons="buttons" /> -->
+    <PageEventsBanner />
     <div
       class="mx-auto max-w-7xl w-full h-full"
       :class="[showList ? 'min-h-[500px]' : '']"
     >
       <PageWrapper>
-        <div v-if="showList && tab === 'new'" id="newEvent">
+        <div
+          v-if="showList && tab === 'new'"
+          id="newEvent"
+          class="scroll-mt-12"
+        >
           <PageHeader>
             <PageTitle text="New events" class="capitalize" />
           </PageHeader>
@@ -94,7 +99,11 @@ const buttons = [
             </ContentList>
           </PageBody>
         </div>
-        <div v-if="showList && tab === 'old'" id="oldEvent">
+        <div
+          v-if="showList && tab === 'old'"
+          id="oldEvent"
+          class="scroll-mt-12"
+        >
           <PageHeader>
             <PageTitle text="old events" class="capitalize" />
           </PageHeader>
