@@ -41,7 +41,7 @@ defineProps({
     >
       <div class="flex flex-col items-center pt-24 md:pt-40">
         <p
-          class="text-5xl text-primary-500 underline hover:cursor-pointer md:text-8xl capitalize opacity-0 group-hover:opacity-100 transition-all ease-in-out duration-700"
+          class="text-3xl text-primary-400 underline hover:cursor-pointer md:text-8xl capitalize opacity-25 group-hover:opacity-100 transition-all ease-in-out duration-700"
           @click="item.onClick"
         >
           {{ item.title }}
