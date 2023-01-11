@@ -89,7 +89,7 @@ const items = [
                         class="text-sm flex space-x-1 items-center text-primary-500"
                         :to="article._path"
                       >
-                        <span>{{ $t('others.learn_more') }}</span>
+                        <span>learn more</span>
                         <icon:ic:baseline-arrow-right-alt class="text-sm" />
                       </Anchor>
                     </div>
@@ -139,7 +139,7 @@ const items = [
                         class="text-sm flex space-x-1 items-center text-primary-500"
                         :to="article._path"
                       >
-                        <span>{{ $t('others.learn_more') }}</span>
+                        <span>learn more</span>
                         <icon:ic:baseline-arrow-right-alt class="text-sm" />
                       </Anchor>
                     </div>

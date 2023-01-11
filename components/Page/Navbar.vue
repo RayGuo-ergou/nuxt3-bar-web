@@ -1,6 +1,4 @@
 <script lang="ts" setup>
-import { AppConfigInput } from '@nuxt/schema'
-
 export interface IMenuItem {
   type: 'link' | 'button'
   text: string
@@ -8,31 +6,30 @@ export interface IMenuItem {
   route?: any
 }
 
-const { t } = useLang()
 const menus = computed((): IMenuItem[] => [
   {
     type: 'link',
-    text: t('pages.nights.nav'),
+    text: 'night',
     route: { name: 'nights' },
   },
   {
     type: 'link',
-    text: t('pages.events.nav'),
+    text: 'events',
     route: { name: 'events' },
   },
   {
     type: 'link',
-    text: t('pages.contact.nav'),
+    text: 'contact',
     route: { name: 'contact' },
   },
   {
     type: 'link',
-    text: t('pages.about.nav'),
+    text: 'about',
     route: { name: 'about' },
   },
   {
     type: 'link',
-    text: t('pages.join-us.nav'),
+    text: 'join us',
     route: { name: 'join-us' },
   },
 ])
@@ -69,7 +66,6 @@ const menus = computed((): IMenuItem[] => [
         <div
           class="flex space-x-4 border-l ml-6 pl-6 border-gray-900/10 dark:border-gray-50/[0.2]"
         >
-          <LanguageSwitcher />
           <ThemeSwitcher />
         </div>
       </div>
@@ -107,17 +103,9 @@ const menus = computed((): IMenuItem[] => [
               </li>
             </ul>
           </nav>
-          <div class="mt-6 text-sm font-bold capitalize">
-            {{ $t('components.theme_switcher.change_theme') }}
-          </div>
+          <div class="mt-6 text-sm font-bold capitalize">change theme</div>
           <div class="mt-2">
             <ThemeSwitcher type="select-box" />
-          </div>
-          <div class="mt-6 text-sm font-bold capitalize">
-            {{ $t('components.language_switcher.change_language') }}
-          </div>
-          <div class="mt-2">
-            <LanguageSwitcher type="select-box" />
           </div>
         </ActionSheetBody>
         <Button
