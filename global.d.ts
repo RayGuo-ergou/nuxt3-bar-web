@@ -1,4 +1,3 @@
-import { IntlifyModuleOptions } from '@intlify/nuxt3'
 import { VueUseNuxtOptions } from '@vueuse/nuxt'
 import { ModuleOptions as NuxtContentModuleOptions } from '@nuxt/content'
 
@@ -14,7 +13,6 @@ declare module '@nuxt/schema' {
 
 declare module 'nuxt/config' {
   interface NuxtConfig {
-    intlify?: IntlifyModuleOptions
     vueuse?: VueUseNuxtOptions
     content?: Partial<NuxtContentModuleOptions>
   }

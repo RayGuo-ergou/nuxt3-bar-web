@@ -29,6 +29,7 @@ export default defineNuxtConfig({
     '@pinia/nuxt',
     '@nuxt/content',
     '@vueuse/nuxt',
+    '@nuxtjs/tailwindcss',
   ],
 
   // experimental features
@@ -63,13 +64,6 @@ export default defineNuxtConfig({
   // vueuse
   vueuse: {
     ssrHandlers: true,
-  },
-
-  postcss: {
-    plugins: {
-      tailwindcss: {},
-      autoprefixer: {},
-    },
   },
 
   // content
