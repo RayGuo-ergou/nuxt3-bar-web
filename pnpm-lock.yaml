@@ -13,6 +13,7 @@ specifiers:
   '@nuxtjs/tailwindcss': ^6.2.0
   '@pinia/nuxt': ^0.4.3
   '@tailwindcss/aspect-ratio': ^0.4.2
+  '@tailwindcss/forms': ^0.5.3
   '@tailwindcss/typography': ^0.5.9
   '@vueuse/components': ^9.9.0
   '@vueuse/core': ^9.6.0
@@ -22,7 +23,6 @@ specifiers:
   eslint-config-prettier: ^8.5.0
   eslint-plugin-nuxt: ^3.2.0
   eslint-plugin-prettier: ^4.2.1
-  flowbite: ^1.5.5
   husky: ^8.0.2
   js-yaml: ^4.1.0
   lint-staged: ^13.0.3
@@ -58,6 +58,7 @@ devDependencies:
   '@nuxtjs/tailwindcss': 6.2.0_webpack@5.75.0
   '@pinia/nuxt': 0.4.6_prq2uz4lho2pwp6irk4cfkrxwu
   '@tailwindcss/aspect-ratio': 0.4.2
+  '@tailwindcss/forms': 0.5.3
   '@tailwindcss/typography': 0.5.9
   '@vueuse/components': 9.9.0_vue@3.2.45
   '@vueuse/core': 9.6.0_vue@3.2.45
@@ -67,7 +68,6 @@ devDependencies:
   eslint-config-prettier: 8.5.0_eslint@8.29.0
   eslint-plugin-nuxt: 3.2.0_eslint@8.29.0
   eslint-plugin-prettier: 4.2.1_5dgjrgoi64tgrv3zzn3walur3u
-  flowbite: 1.5.5
   husky: 8.0.2
   js-yaml: 4.1.0
   lint-staged: 13.1.0
@@ -2120,10 +2120,6 @@ packages:
       tslib: 2.4.1
     dev: true
 
-  /@popperjs/core/2.11.6:
-    resolution: {integrity: sha512-50/17A98tWUfQ176raKiOGXuYpLyyVMkxxG6oylzL3BPOlA6ADGdK7EYunSa4I064xerltq9TGXs8HmOk5E+vw==}
-    dev: true
-
   /@rollup/plugin-alias/4.0.2_rollup@2.79.1:
     resolution: {integrity: sha512-1hv7dBOZZwo3SEupxn4UA2N0EDThqSSS+wI1St1TNTBtOZvUchyIClyHcnDcjjrReTPZ47Faedrhblv4n+T5UQ==}
     engines: {node: '>=14.0.0'}
@@ -2275,6 +2271,17 @@ packages:
     peerDependenciesMeta:
       tailwindcss:
         optional: true
+    dev: true
+
+  /@tailwindcss/forms/0.5.3:
+    resolution: {integrity: sha512-y5mb86JUoiUgBjY/o6FJSFZSEttfb3Q5gllE4xoKjAAD+vBrnIhE4dViwUuow3va8mpH4s9jyUbUbrRGoRdc2Q==}
+    peerDependencies:
+      tailwindcss: '>=3.0.0 || >= 3.0.0-alpha.1'
+    peerDependenciesMeta:
+      tailwindcss:
+        optional: true
+    dependencies:
+      mini-svg-data-uri: 1.4.4
     dev: true
 
   /@tailwindcss/typography/0.5.9:
@@ -5631,13 +5638,6 @@ packages:
 
   /flatted/3.2.7:
     resolution: {integrity: sha512-5nqDSxl8nn5BSNxyR3n4I6eDmbolI6WT+QqR547RwxQapgjQBmtktdP+HTBb/a/zLsbzERTONyUB5pefh5TtjQ==}
-    dev: true
-
-  /flowbite/1.5.5:
-    resolution: {integrity: sha512-LWJteH6zO+6BrnerH6GEU9OFpjWmkCWi9BD3XnJdBOVevNnt7u8gW+S+4keqD5OGpHu+QU860pLzNKeNlhlf6g==}
-    dependencies:
-      '@popperjs/core': 2.11.6
-      mini-svg-data-uri: 1.4.4
     dev: true
 
   /follow-redirects/1.15.2:

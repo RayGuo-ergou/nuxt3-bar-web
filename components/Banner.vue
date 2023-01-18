@@ -70,25 +70,7 @@ defineProps({
         </p>
 
         <div class="mt-8 flex flex-wrap gap-4 text-center">
-          <div v-for="button in buttons" :key="button.text">
-            <a
-              :color="button.color"
-              :variant="button.variant"
-              class="block w-full rounded px-12 py-3 text-sm font-medium text-white shadow focus:outline-none sm:w-auto"
-              :class="`bg-${button.color}-${
-                button.variant === 'solid' ? '600' : '100'
-              } hover:bg-${button.color}-${
-                button.variant === 'solid' ? '700' : '200'
-              } focus:ring-${button.color}-${
-                button.variant === 'solid' ? '500' : '200'
-              } active:bg${button.color}-${
-                button.variant === 'solid' ? '500' : '100'
-              }}`"
-              @click="button.onClick"
-            >
-              {{ button.text }}
-            </a>
-          </div>
+          <div v-for="button in buttons" :key="button.text"></div>
         </div>
       </div>
     </div>
