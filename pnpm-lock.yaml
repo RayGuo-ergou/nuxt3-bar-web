@@ -15,6 +15,8 @@ specifiers:
   '@tailwindcss/aspect-ratio': ^0.4.2
   '@tailwindcss/forms': ^0.5.3
   '@tailwindcss/typography': ^0.5.9
+  '@trpc/client': ^10.9.0
+  '@trpc/server': ^10.9.0
   '@vueuse/components': ^9.9.0
   '@vueuse/core': ^9.6.0
   '@vueuse/nuxt': ^9.6.0
@@ -34,8 +36,10 @@ specifiers:
   sass: 1.53.0
   sass-loader: ^13.2.0
   serve: ^13.0.2
+  superjson: ^1.12.2
   tailwindcss-animate: ^1.0.5
   translate: ^1.4.1
+  trpc-nuxt: ^0.5.0
   typescript: ^4.8.4
   unplugin-icons: ^0.14.14
   unplugin-vue-components: ^0.22.9
@@ -44,6 +48,7 @@ specifiers:
   vue: ^3.2.41
   vue-tsc: ^1.0.9
   webpack: '>=5.0.0 <6.0.0'
+  zod: ^3.20.2
 
 devDependencies:
   '@babel/core': 7.20.5
@@ -60,6 +65,8 @@ devDependencies:
   '@tailwindcss/aspect-ratio': 0.4.2
   '@tailwindcss/forms': 0.5.3
   '@tailwindcss/typography': 0.5.9
+  '@trpc/client': 10.9.0_@trpc+server@10.9.0
+  '@trpc/server': 10.9.0
   '@vueuse/components': 9.9.0_vue@3.2.45
   '@vueuse/core': 9.6.0_vue@3.2.45
   '@vueuse/nuxt': 9.6.0_nuxt@3.0.0+vue@3.2.45
@@ -79,8 +86,10 @@ devDependencies:
   sass: 1.53.0
   sass-loader: 13.2.0_sass@1.53.0+webpack@5.75.0
   serve: 13.0.4
+  superjson: 1.12.2
   tailwindcss-animate: 1.0.5
   translate: 1.4.1_@babel+core@7.20.5
+  trpc-nuxt: 0.5.0_2zpqbmooshoeqfe2ml35ze43ai
   typescript: 4.9.4
   unplugin-icons: 0.14.14
   unplugin-vue-components: 0.22.11_vue@3.2.45
@@ -89,6 +98,7 @@ devDependencies:
   vue: 3.2.45
   vue-tsc: 1.0.12_typescript@4.9.4
   webpack: 5.75.0
+  zod: 3.20.2
 
 packages:
 
@@ -2298,6 +2308,18 @@ packages:
       postcss-selector-parser: 6.0.10
     dev: true
 
+  /@trpc/client/10.9.0_@trpc+server@10.9.0:
+    resolution: {integrity: sha512-id6318qpgqllNOuBp7nuciXFPXCe+zae5d4r1hze6Eyp5fFFNO58TqA+4Q44KIcHgpfWyW2egs6iPeql3PrdKA==}
+    peerDependencies:
+      '@trpc/server': 10.9.0
+    dependencies:
+      '@trpc/server': 10.9.0
+    dev: true
+
+  /@trpc/server/10.9.0:
+    resolution: {integrity: sha512-5psyZgbvy29pJND32hwkWTMbv6s86IbsPOeDopsgNF0VegZT6Dsijmb7Ub/TDhuJVQVq5u4u5briMXi3SxmBkw==}
+    dev: true
+
   /@trysound/sax/0.2.0:
     resolution: {integrity: sha512-L7z9BgrNEcYyUYtF+HaEfiS5ebkh9jXqbszz7pC0hRBPaatV0XjSD3+eHrpqFemQfgwiFF0QPIarnIihIDn7OA==}
     engines: {node: '>=10.13.0'}
@@ -3936,6 +3958,13 @@ packages:
     dependencies:
       depd: 2.0.0
       keygrip: 1.1.0
+    dev: true
+
+  /copy-anything/3.0.3:
+    resolution: {integrity: sha512-fpW2W/BqEzqPp29QS+MwwfisHCQZtiduTe/m8idFo0xbti9fIZ2WVhAsCv4ggFVH3AgCkVdpoOCtQC6gBrdhjw==}
+    engines: {node: '>=12.13'}
+    dependencies:
+      is-what: 4.1.8
     dev: true
 
   /core-js-compat/3.26.1:
@@ -5980,6 +6009,15 @@ packages:
       ufo: 1.0.1
     dev: true
 
+  /h3/1.0.2:
+    resolution: {integrity: sha512-25QqjQMz8pX1NI2rZ/ziNT9B8Aog7jmu2a0o8Qm9kKoH3zOhE+2icVs069h6DEp0g1Dst1+zKfRdRYcK0MogJA==}
+    dependencies:
+      cookie-es: 0.5.0
+      destr: 1.2.2
+      radix3: 1.0.0
+      ufo: 1.0.1
+    dev: true
+
   /hard-rejection/2.1.0:
     resolution: {integrity: sha512-VIZB+ibDhx7ObhAe7OVtoEbuP4h/MuOTHJ+J8h/eBXotJYl0fBgR72xDFCKgIh22OJZIOVNxBMWuhAr10r8HdA==}
     engines: {node: '>=6'}
@@ -6602,6 +6640,11 @@ packages:
     resolution: {integrity: sha512-qctsuLZmIQ0+vSSMfoVvyFe2+GSEvnmZ2ezTup1SBse9+twCCeial6EEi3Nc2KFcf6+qz2FBPnjXsk8xhKSaPQ==}
     dependencies:
       call-bind: 1.0.2
+    dev: true
+
+  /is-what/4.1.8:
+    resolution: {integrity: sha512-yq8gMao5upkPoGEU9LsB2P+K3Kt8Q3fQFCGyNCWOAnJAMzEXVV9drYb0TXr42TTliLLhKIBvulgAXgtLLnwzGA==}
+    engines: {node: '>=12.13'}
     dev: true
 
   /is-wsl/2.2.0:
@@ -9995,6 +10038,13 @@ packages:
       postcss-selector-parser: 6.0.11
     dev: true
 
+  /superjson/1.12.2:
+    resolution: {integrity: sha512-ugvUo9/WmvWOjstornQhsN/sR9mnGtWGYeTxFuqLb4AiT4QdUavjGFRALCPKWWnAiUJ4HTpytj5e0t5HoMRkXg==}
+    engines: {node: '>=10'}
+    dependencies:
+      copy-anything: 3.0.3
+    dev: true
+
   /supports-color/5.5.0:
     resolution: {integrity: sha512-QjVjwdXIt408MIiAqCX4oUKsgU2EqAGzs2Ppkm4aQYbjm+ZEWEcW4SfFNTr4uMNZma0ey4f5lgLrkB0aX0QMow==}
     engines: {node: '>=4'}
@@ -10288,6 +10338,21 @@ packages:
 
   /trough/2.1.0:
     resolution: {integrity: sha512-AqTiAOLcj85xS7vQ8QkAV41hPDIJ71XJB4RCUrzo/1GM2CQwhkJGaf9Hgr7BOugMRpgGUrqRg/DrBDl4H40+8g==}
+    dev: true
+
+  /trpc-nuxt/0.5.0_2zpqbmooshoeqfe2ml35ze43ai:
+    resolution: {integrity: sha512-PZpmwc2QYkC1CWxGo3brFwou88zoP6cB9+GmlIffJJLKCmTY7XzIfarNxSbCocdeymJjMpcL/94t9kJm85/eTQ==}
+    engines: {node: ^16.13.0 || ^18.12.0}
+    peerDependencies:
+      '@trpc/client': ^10.8.0
+      '@trpc/server': ^10.8.0
+    dependencies:
+      '@trpc/client': 10.9.0_@trpc+server@10.9.0
+      '@trpc/server': 10.9.0
+      h3: 1.0.2
+      ofetch: 1.0.0
+      ohash: 1.0.0
+      ufo: 1.0.1
     dev: true
 
   /ts-node/10.9.1_ewcgsh5jhk3o7xvttutb4bhery:
@@ -11409,6 +11474,10 @@ packages:
       archiver-utils: 2.1.0
       compress-commons: 4.1.1
       readable-stream: 3.6.0
+    dev: true
+
+  /zod/3.20.2:
+    resolution: {integrity: sha512-1MzNQdAvO+54H+EaK5YpyEy0T+Ejo/7YLHS93G3RnYWh5gaotGHwGeN/ZO687qEDU2y4CdStQYXVHIgrUl5UVQ==}
     dev: true
 
   /zwitch/2.0.4:
