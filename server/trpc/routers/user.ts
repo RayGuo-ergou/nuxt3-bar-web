@@ -20,6 +20,7 @@ export const userRouter = router({
     return $fetch<User>(`${baseURL}/users/${req.input}`)
   }),
   addUser: publicProcedure.input(UserShape).mutation((req) => {
+    // TODO: change to upsert
     return req.ctx.prisma.user.create({
       data: {
         name: req.input.name,
