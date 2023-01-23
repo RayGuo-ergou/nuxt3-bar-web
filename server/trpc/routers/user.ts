@@ -4,10 +4,15 @@ import { publicProcedure, router } from '../trpc'
 
 const baseURL = 'https://jsonplaceholder.typicode.com'
 
+const FeedbackShape = z.object({
+  text: z.string(),
+})
+
 const UserShape = z.object({
   name: z.string(),
   email: z.string(),
   phone: z.number(),
+  feedbacks: z.array(FeedbackShape).optional(),
 })
 
 export type User = z.infer<typeof UserShape>
@@ -21,11 +26,32 @@ export const userRouter = router({
   }),
   addUser: publicProcedure.input(UserShape).mutation((req) => {
     // TODO: change to upsert
-    return req.ctx.prisma.user.create({
-      data: {
+    return req.ctx.prisma.user.upsert({
+      where: {
+        user_email_phone: {
+          email: req.input.email,
+          phone: req.input.phone,
+        },
+      },
+      update: {
+        feedbacks: {
+          create: {
+            text: 'This is a sample feedback.',
+          },
+        },
+      },
+      create: {
         name: req.input.name,
         email: req.input.email,
         phone: req.input.phone,
+        feedbacks: {
+          create: {
+            text: 'This is a sample feedback.',
+          },
+        },
+      },
+      include: {
+        feedbacks: true,
       },
     })
 
