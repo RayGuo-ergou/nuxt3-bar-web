@@ -16,6 +16,7 @@ useHead(() => ({
     <PageBody>
       <PageSection>
         <div>PAGE_BODY</div>
+        <RichTextEditor />
       </PageSection>
     </PageBody>
   </PageWrapper>

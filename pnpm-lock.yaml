@@ -29,6 +29,7 @@ specifiers:
   husky: ^8.0.2
   js-yaml: ^4.1.0
   lint-staged: ^13.0.3
+  mavon-editor: 3.0.0-beta
   nuxt: 3.0.0
   pinia: ^2.0.23
   postcss: ^8.4.20
@@ -81,6 +82,7 @@ devDependencies:
   husky: 8.0.2
   js-yaml: 4.1.0
   lint-staged: 13.1.0
+  mavon-editor: 3.0.0-beta
   nuxt: 3.0.0_u23turm2vsl6zvrayvc36vxnii
   pinia: 2.0.28_prq2uz4lho2pwp6irk4cfkrxwu
   postcss: 8.4.20
@@ -4125,6 +4127,10 @@ packages:
     hasBin: true
     dev: true
 
+  /cssfilter/0.0.10:
+    resolution: {integrity: sha512-FAaLDaplstoRsDR8XGYH51znUN0UY7nMc6Z9/fvE8EXGwvJE9hu7W2vHwx1+bd6gCYnln9nLbzxFTrcO9YQDZw==}
+    dev: true
+
   /cssnano-preset-default/5.2.13_postcss@8.4.20:
     resolution: {integrity: sha512-PX7sQ4Pb+UtOWuz8A1d+Rbi+WimBIxJTRyBdgGp1J75VU0r/HFQeLnMYgHiCAp6AR4rqrc7Y4R+1Rjk3KJz6DQ==}
     engines: {node: ^10 || ^12 || >=14.0}
@@ -6193,6 +6199,16 @@ packages:
     hasBin: true
     dev: true
 
+  /highlight.js-async-webpack/1.0.4:
+    resolution: {integrity: sha512-IC0AwUgNr7BU8pqheaCEvOQvOtIZwO3I4rtbmT489Ndz8loE31IRmBmT6C4qDCbfZjzNO+k2w3VceZjTQ3JQ8Q==}
+    dev: true
+
+  /highlight.js/9.18.5:
+    resolution: {integrity: sha512-a5bFyofd/BHCX52/8i8uJkjr9DYwXIPnM/plwI6W7ezItLGqzt7X2G2nXuYSfsIJdkwwj/g9DG1LkcGJI/dDoA==}
+    deprecated: Support has ended for 9.x series. Upgrade to @latest
+    requiresBuild: true
+    dev: true
+
   /hookable/5.4.2:
     resolution: {integrity: sha512-6rOvaUiNKy9lET1X0ECnyZ5O5kSV0PJbtA5yZUgdEF7fGJEVwSLSislltyt7nFwVVALYHQJtfGeAR2Y0A0uJkg==}
     dev: true
@@ -7162,6 +7178,14 @@ packages:
 
   /markdown-table/3.0.3:
     resolution: {integrity: sha512-Z1NL3Tb1M9wH4XESsCDEksWoKTdlUafKc4pt0GRwjUyXaCFZ+dc3g2erqB6zm3szA2IUSi7VnPI+o/9jnxh9hw==}
+    dev: true
+
+  /mavon-editor/3.0.0-beta:
+    resolution: {integrity: sha512-cmGKbkgrlvFtrhEVyEUIO2X30R+0p0cWpWcYZ97p2E7zn5flKakgv3gq/4mrzjb6UTmhUiHis38k+a6fP6XUEQ==}
+    dependencies:
+      highlight.js: 9.18.5
+      highlight.js-async-webpack: 1.0.4
+      xss: 1.0.14
     dev: true
 
   /mdast-squeeze-paragraphs/5.2.0:
@@ -11429,6 +11453,15 @@ packages:
   /xmlhttprequest-ssl/2.0.0:
     resolution: {integrity: sha512-QKxVRxiRACQcVuQEYFsI1hhkrMlrXHPegbbd1yn9UHOmRxY+si12nQYzri3vbzt8VdTTRviqcKxcyllFas5z2A==}
     engines: {node: '>=0.4.0'}
+    dev: true
+
+  /xss/1.0.14:
+    resolution: {integrity: sha512-og7TEJhXvn1a7kzZGQ7ETjdQVS2UfZyTlsEdDOqvQF7GoxNfY+0YLCzBy1kPdsDDx4QuNAonQPddpsn6Xl/7sw==}
+    engines: {node: '>= 0.10.0'}
+    hasBin: true
+    dependencies:
+      commander: 2.20.3
+      cssfilter: 0.0.10
     dev: true
 
   /xtend/4.0.2:
