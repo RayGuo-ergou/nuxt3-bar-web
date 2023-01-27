@@ -5,6 +5,7 @@
         ref="textEditor"
         v-model="handbook"
         :toolbars="markdownOption"
+        :language="'en'"
       />
       <div>{{ handbook }}</div>
       <button @click="test">111</button>
