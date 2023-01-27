@@ -30,6 +30,7 @@ export default defineNuxtConfig({
     '@nuxt/content',
     '@vueuse/nuxt',
     '@nuxtjs/tailwindcss',
+    '@nuxtjs/supabase',
   ],
 
   // experimental features
