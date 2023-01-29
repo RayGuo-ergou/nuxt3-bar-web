@@ -1,6 +1,5 @@
-const { $client } = useNuxtApp()
-
 export default defineNuxtRouteMiddleware(async (to, _from) => {
+  const { $client } = useNuxtApp()
   const { data, error } = await $client.auth.user.useQuery()
 
   if (!data.value) {

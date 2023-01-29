@@ -63,7 +63,6 @@ const generateFiles = (docs: document[], newDoc = true) => {
       temp,
       (err) => {
         if (err) {
-          // eslint-disable-next-line no-console
           console.error(err)
         }
       }
