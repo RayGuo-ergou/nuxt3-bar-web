@@ -1,6 +1,7 @@
 import type { inferAsyncReturnType } from '@trpc/server'
 import type { H3Event } from 'h3'
 import { prisma } from '../db'
+import { serverSupabaseClient } from '#supabase/server'
 
 export type Context = inferAsyncReturnType<typeof createContext>
 
@@ -9,10 +10,13 @@ export type Context = inferAsyncReturnType<typeof createContext>
  * @link https://trpc.io/docs/context
  */
 export function createContext(event: H3Event) {
+  const supabase = serverSupabaseClient(event)
   // for API-response caching see https://trpc.io/docs/caching
   // console.log('cookies', parseCookies(event))
 
   return {
+    event,
+    supabase,
     prisma,
   }
 }

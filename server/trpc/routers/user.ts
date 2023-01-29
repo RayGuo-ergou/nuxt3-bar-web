@@ -1,5 +1,4 @@
 import { z } from 'zod'
-import { PrismaClient } from '@prisma/client'
 import { publicProcedure, router } from '../trpc'
 
 const baseURL = 'https://jsonplaceholder.typicode.com'
