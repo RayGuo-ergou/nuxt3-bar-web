@@ -10,10 +10,15 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+// document type enum
+enum DocumentType {
+  NEW
+  OLD
+}
+
 // a use schema 
 // id as primary key
 // first name, last name, email, phone number
-
 model User {
   id        Int        @id @default(autoincrement())
   name      String
@@ -28,7 +33,6 @@ model User {
 
 // a feedback schema
 // link to user
-
 model Feedback {
   id        Int      @id @default(autoincrement())
   user      User     @relation(fields: [userId], references: [id])
@@ -36,4 +40,19 @@ model Feedback {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   text      String
+}
+
+// content docs (events)
+// https://content.nuxtjs.org/guide/writing/markdown/
+model document {
+  id          Int          @id @default(autoincrement())
+  title       String
+  description String
+  draft       Boolean      @default(false)
+  navigation  Boolean      @default(true)
+  content     String
+  author      String
+  type        DocumentType @default(NEW)
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
 }
