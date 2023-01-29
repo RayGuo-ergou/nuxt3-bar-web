@@ -17,7 +17,7 @@
     "serve": "serve dist/",
     "postinstall": "husky install",
     "lint": "eslint --ext \".ts,.js,.vue\" --ignore-path .eslintignore .",
-    "lintfix": "eslint --fix --ext \".ts,.js,.vue\" --ignore-path .eslintignore .",
+    "lintfix": "eslint --fix --ext \".ts,.vue\" --ignore-path .eslintignore .",
     "prepare": "husky install",
     "clean": "rm -rf .nuxt dist .output",
     "generate:locales": "node tools/translator.js ./locales en.yml",
