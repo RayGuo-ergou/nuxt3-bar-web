@@ -1,5 +1,5 @@
 import { z } from 'zod'
-import { publicProcedure, router } from '../trpc'
+import { publicProcedure, protectedProcedure, router } from '../trpc'
 
 const baseURL = 'https://jsonplaceholder.typicode.com'
 
@@ -24,5 +24,8 @@ export const todoRouter = router({
       method: 'POST',
       body: req.input,
     })
+  }),
+  testProtected: protectedProcedure.query((req) => {
+    return 'success'
   }),
 })

@@ -6,6 +6,15 @@ definePageMeta({
 useHead(() => ({
   title: 'join-us',
 }))
+const { $client } = useNuxtApp()
+const test = async () => {
+  try {
+    const result = await $client.todo.testProtected.useQuery()
+    console.log(result)
+  } catch (e) {
+    console.log(e)
+  }
+}
 </script>
 
 <template>
@@ -16,6 +25,7 @@ useHead(() => ({
     <PageBody>
       <PageSection>
         <div>PAGE_BODY</div>
+        <button @click="test">click</button>
         <RichTextEditor />
       </PageSection>
     </PageBody>
