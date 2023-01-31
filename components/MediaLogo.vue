@@ -1,14 +1,18 @@
 <template>
-  <a href="#" class="text-gray-500 hover:text-gray-900 dark:hover:text-white">
-    <IconFluentMdl2FacebookLogo style="font-size: 1.5em" />
+  <a href="#" class="text-gray-500 hover:text-blue-600">
+    <IconFaBrandsFacebookSquare style="font-size: 1.5em" />
     <span class="sr-only">Facebook page</span>
   </a>
-  <a href="#" class="text-gray-500 hover:text-gray-900 dark:hover:text-white">
-    <IconLineMdInstagram style="font-size: 1.5em" />
+  <a id="ins" href="#" class="text-gray-500 hover:text-pink-600">
+    <IconFaBrandsInstagram style="font-size: 1.5em" />
     <span class="sr-only">Instagram page</span>
   </a>
-  <a href="#" class="text-gray-500 hover:text-gray-900 dark:hover:text-white">
-    <IconFluentMdl2TwitterLogo style="font-size: 1.5em" />
+  <a href="#" class="text-gray-500 hover:text-blue-300">
+    <IconFaBrandsTiktok style="font-size: 1.5em" />
+    <span class="sr-only">Twitter page</span>
+  </a>
+  <a href="#" class="text-gray-500 hover:text-red-600">
+    <IconFaBrandsYoutube style="font-size: 1.5em" />
     <span class="sr-only">Twitter page</span>
   </a>
 </template>
