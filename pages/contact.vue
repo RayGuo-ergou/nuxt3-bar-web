@@ -11,7 +11,7 @@ useHead(() => ({
 <template>
   <div>
     <Banner class="h-[25vh] md:h-[50vh] lg:h-[75vh]" />
-    <div class="mx-auto max-w-screen-2xl w-full pt-2">
+    <div class="mx-auto max-w-screen-2.5xl w-full pt-2">
       <iframe
         width="100%"
         height="600"

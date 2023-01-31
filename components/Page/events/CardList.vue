@@ -1,5 +1,5 @@
 <template>
-  <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
     <div
       v-for="card in list"
       :key="card.title"
@@ -63,6 +63,16 @@ defineProps({
   list: {
     type: Array as PropType<CardInfo[]>,
     default: () => [
+      {
+        title: 'Noteworthy technology acquisitions 2021',
+        description:
+          'Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.',
+        image: {
+          url: 'https://flowbite.com/docs/images/blog/image-1.jpg',
+          alt: 'Noteworthy technology acquisitions 2021',
+        },
+        link: '#',
+      },
       {
         title: 'Noteworthy technology acquisitions 2021',
         description:

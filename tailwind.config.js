@@ -86,6 +86,8 @@ module.exports = {
       },
       maxWidth: {
         '8xl': '90rem',
+        'screen-2.5xl': '2036px',
+        'screen-3xl': '2236px',
       },
       colors: {
         // primary: MyTheme.colors.green,
