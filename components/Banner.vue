@@ -1,26 +1,5 @@
 <script lang="ts" setup>
-import { PropType } from 'vue'
-
-type Button = {
-  text: string
-  color: string
-  variant: string
-  onClick: Function
-}
-
 defineProps({
-  buttons: {
-    type: Array as PropType<Button[]>,
-    default: () => [
-      {
-        text: 'Button',
-        color: 'primary',
-        variant: 'solid',
-        onClick: () => {},
-      },
-    ],
-  },
-
   title: {
     type: String,
     default: 'Title',
@@ -70,7 +49,7 @@ defineProps({
         </p>
 
         <div class="mt-8 flex flex-wrap gap-4 text-center">
-          <div v-for="button in buttons" :key="button.text"></div>
+          <slot name="button"></slot>
         </div>
       </div>
     </div>

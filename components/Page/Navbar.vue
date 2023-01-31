@@ -9,8 +9,8 @@ export interface IMenuItem {
 const menus = computed((): IMenuItem[] => [
   {
     type: 'link',
-    text: 'night',
-    route: { name: 'nights' },
+    text: 'about',
+    route: { name: 'about' },
   },
   {
     type: 'link',
@@ -19,13 +19,13 @@ const menus = computed((): IMenuItem[] => [
   },
   {
     type: 'link',
-    text: 'contact',
-    route: { name: 'contact' },
+    text: 'services',
+    route: { name: 'services' },
   },
   {
     type: 'link',
-    text: 'about',
-    route: { name: 'about' },
+    text: 'contact',
+    route: { name: 'contact' },
   },
   {
     type: 'link',

@@ -7,5 +7,5 @@ echo "SCRIPT_DIR: $SCRIPT_DIR"
 rm $SCRIPT_DIR/../content/events/new/*.md
 rm $SCRIPT_DIR/../content/events/old/*.md
 
-tsc ./scripts/generateDocs.ts 
-node ./scripts/generateDocs.js
+tsc $SCRIPT_DIR/generateDocs.ts 
+node $SCRIPT_DIR/generateDocs.js
