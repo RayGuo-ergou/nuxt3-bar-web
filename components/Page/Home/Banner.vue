@@ -93,11 +93,12 @@
 </template>
 
 <script lang="ts" setup>
-// XXX when video Carousel render again, it will disappear, use client side render as a workaround
-// Pbly because of the client only plugin for flowbite
-// TODO: wait for nuxt and flowbit to support ssr
-// @ts-nocheck
-
+import {
+  Carousel,
+  CarouselItem,
+  CarouselOptions,
+  IndicatorItem,
+} from 'flowbite'
 const videos = [
   {
     title: 'First Slide',
@@ -117,12 +118,15 @@ const videos = [
   },
 ]
 onMounted(() => {
-  const carouselItems = videos.map((video, index) => ({
-    position: index,
-    el: document.getElementById(`carousel-item-${index + 1}`),
-  }))
+  const carouselItems = videos.map(
+    (video, index) =>
+      ({
+        position: index,
+        el: document.getElementById(`carousel-item-${index + 1}`),
+      } as CarouselItem)
+  )
 
-  const options = {
+  const options: CarouselOptions = {
     defaultPosition: 1,
     interval: 3000,
 
@@ -130,26 +134,28 @@ onMounted(() => {
       activeClasses: 'bg-white dark:bg-gray-800',
       inactiveClasses:
         'bg-white/50 dark:bg-gray-800/50 hover:bg-white dark:hover:bg-gray-800',
-      items: videos.map((video, index) => ({
-        position: index,
-        el: document.getElementById(`carousel-indicator-${index + 1}`),
-      })),
+      items: videos.map(
+        (video, index) =>
+          ({
+            position: index,
+            el: document.getElementById(`carousel-indicator-${index + 1}`),
+          } as IndicatorItem)
+      ),
     },
   }
-  const carousel = new Carousel(carouselItems, options)
 
-  carousel.cycle()
-
-  // set event listeners for prev and next buttons
-  const $prevButton = document.getElementById('data-carousel-prev')
-  const $nextButton = document.getElementById('data-carousel-next')
-
-  $prevButton?.addEventListener('click', () => {
-    carousel.prev()
-  })
-
-  $nextButton?.addEventListener('click', () => {
-    carousel.next()
-  })
+  if (document.getElementById('carousel-item-1')) {
+    const carousel = new Carousel(carouselItems, options)
+    carousel.cycle()
+    // set event listeners for prev and next buttons
+    const prevButton = document.getElementById('data-carousel-prev')
+    const nextButton = document.getElementById('data-carousel-next')
+    prevButton?.addEventListener('click', () => {
+      carousel.prev()
+    })
+    nextButton?.addEventListener('click', () => {
+      carousel.next()
+    })
+  }
 })
 </script>

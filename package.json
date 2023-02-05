@@ -88,5 +88,8 @@
         "tailwindcss"
       ]
     }
+  },
+  "dependencies": {
+    "flowbite": "^1.6.3"
   }
 }
