@@ -18,10 +18,16 @@ useHead({
       content: 'Nuxt 3 Awesome Starter',
     },
   ],
-  link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+  link: [
+    { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+    {
+      rel: 'stylesheet',
+      href: 'https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.css',
+    },
+  ],
   script: [
     {
-      src: 'https://unpkg.com/flowbite@1.6.0/dist/flowbite.min.js',
+      src: 'https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.js',
     },
   ],
 })
