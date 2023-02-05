@@ -4,9 +4,10 @@ description: 'This is an new document'
 draft: false
 navigation: true
 date: '2/5/2023
- 8: 29: 28 PM'
+  8: 29: 28 PM'
 author: 'admin'
-thumbnail: 'https://picsum.photos/200/300'
-externalLink: null
+thumbnail: 'https://picsum.photos/1600/900'
+externalLink: 'https://www.google.com/'
 ---
+
 # This is a document

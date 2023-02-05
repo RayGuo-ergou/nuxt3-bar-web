@@ -11,6 +11,9 @@ useHead(() => ({
 <template>
   <div>
     <Banner class="h-[25vh] md:h-[50vh] lg:h-[75vh]" />
-    <PageEventsCardList class="max-w-screen-3xl mx-auto" />
+    <!-- TODO: for different sections like new and old events -->
+    <ContentList v-slot="{ list }" path="/events/new">
+      <PageEventsCardList class="max-w-screen-3xl mx-auto" :list="list" />
+    </ContentList>
   </div>
 </template>

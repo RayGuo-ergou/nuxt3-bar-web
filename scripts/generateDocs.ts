@@ -25,6 +25,8 @@ const generateMD = (doc: document): string => {
       ? convertTimeZone(doc.updatedAt)
       : convertTimeZone(doc.createdAt),
     author: doc.author,
+    thumbnail: doc.thumbnail,
+    externalLink: doc.externalLink,
   }
 
   const docString = JSON.stringify(docHeaders)
@@ -38,8 +40,8 @@ const generateMD = (doc: document): string => {
     .replace(/,/g, '\n')
     // remove curly braces
     .replace(/[{}]/g, '')
-    // add one space after each colon
-    .replace(/:/g, ': ')
+    // add one space after each colon except for URL scheme
+    .replace(/:(?!\/\/)/g, ': ')
 
   const result = `---\n${unquoted}\n---\n${doc.content}`
   return result

@@ -45,14 +45,16 @@ model Feedback {
 // content docs (events)
 // https://content.nuxtjs.org/guide/writing/markdown/
 model document {
-  id          Int          @id @default(autoincrement())
-  title       String
-  description String
-  draft       Boolean      @default(false)
-  navigation  Boolean      @default(true)
-  content     String
-  author      String
-  type        DocumentType @default(NEW)
-  createdAt   DateTime     @default(now())
-  updatedAt   DateTime     @updatedAt
+  id           Int          @id @default(autoincrement())
+  title        String
+  description  String
+  draft        Boolean      @default(false)
+  navigation   Boolean      @default(true)
+  content      String
+  author       String
+  type         DocumentType @default(NEW)
+  thumbnail    String
+  externalLink String?
+  createdAt    DateTime     @default(now())
+  updatedAt    DateTime     @updatedAt
 }

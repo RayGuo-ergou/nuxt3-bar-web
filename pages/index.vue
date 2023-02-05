@@ -5,6 +5,12 @@
     <template #cover>
       <ClientOnly>
         <PageHomeBanner />
+        <template #fallback>
+          <div class="pb-[56.25%]">
+            <!-- TODO: preloader -->
+            <p>Loading comments...</p>
+          </div>
+        </template>
       </ClientOnly>
     </template>
     <ClientOnly>
