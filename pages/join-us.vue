@@ -9,7 +9,7 @@ useHead(() => ({
 const { $client } = useNuxtApp()
 const test = async () => {
   try {
-    const result = await $client.todo.testProtected.useQuery()
+    const result = await $client.auth.testProtected.useQuery()
     console.log(result)
   } catch (e) {
     console.log(e)

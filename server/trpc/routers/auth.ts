@@ -1,7 +1,7 @@
 import { z } from 'zod'
 import { Session } from '@supabase/gotrue-js'
 import { CookieSerializeOptions } from 'cookie-es'
-import { publicProcedure, router } from '../trpc'
+import { protectedProcedure, publicProcedure, router } from '../trpc'
 
 const cookieOptions = {
   httpOnly: true,
@@ -75,5 +75,8 @@ export const authRouter = router({
     }
 
     return { data, error }
+  }),
+  testProtected: protectedProcedure.query((req) => {
+    return 'success'
   }),
 })
