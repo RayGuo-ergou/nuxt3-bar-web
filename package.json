@@ -1,12 +1,12 @@
 {
-  "name": "nuxt3-awesome-starter",
+  "name": "chin-website",
   "version": "0.1.0",
   "description": "a Nuxt 3 starter template or boilerplate with a lot of useful features. Nuxt3 + Tailwindcss 3",
   "repository": {
     "type": "git",
-    "url": "git://github.com/viandwi24/nuxt3-awesome-starter"
+    "url": "https://github.com/RayGuo-ergou/nuxt3-bar-web.git"
   },
-  "author": "viandwi24",
+  "author": "RayGuo-ergou",
   "license": "MIT",
   "scripts": {
     "build": "nuxt build",
@@ -21,7 +21,8 @@
     "prepare": "husky install",
     "clean": "rm -rf .nuxt dist .output",
     "generate:locales": "node tools/translator.js ./locales en.yml",
-    "vercel-build": "prisma generate && prisma migrate deploy && nuxt build"
+    "vercel-build": "prisma generate && prisma migrate deploy && nuxt build",
+    "sync:content": "bash ./scripts/syncMDwithDB.bash"
   },
   "devDependencies": {
     "@babel/core": "^7.20.12",
@@ -50,6 +51,7 @@
     "eslint-config-prettier": "^8.6.0",
     "eslint-plugin-nuxt": "^4.0.0",
     "eslint-plugin-prettier": "^4.2.1",
+    "flowbite": "^1.6.3",
     "husky": "^8.0.3",
     "js-yaml": "^4.1.0",
     "lint-staged": "^13.1.0",
@@ -88,8 +90,5 @@
         "tailwindcss"
       ]
     }
-  },
-  "dependencies": {
-    "flowbite": "^1.6.3"
   }
 }

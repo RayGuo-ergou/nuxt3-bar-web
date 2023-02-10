@@ -55,9 +55,6 @@ specifiers:
   webpack: '>=5.0.0 <6.0.0'
   zod: ^3.20.2
 
-dependencies:
-  flowbite: 1.6.3
-
 devDependencies:
   '@babel/core': 7.20.12
   '@commitlint/cli': 17.4.2
@@ -85,6 +82,7 @@ devDependencies:
   eslint-config-prettier: 8.6.0_eslint@8.33.0
   eslint-plugin-nuxt: 4.0.0_eslint@8.33.0
   eslint-plugin-prettier: 4.2.1_jqplj6qf3uqpxpu4gdyhwwasnq
+  flowbite: 1.6.3
   husky: 8.0.3
   js-yaml: 4.1.0
   lint-staged: 13.1.0
@@ -2476,7 +2474,7 @@ packages:
 
   /@popperjs/core/2.11.6:
     resolution: {integrity: sha512-50/17A98tWUfQ176raKiOGXuYpLyyVMkxxG6oylzL3BPOlA6ADGdK7EYunSa4I064xerltq9TGXs8HmOk5E+vw==}
-    dev: false
+    dev: true
 
   /@prisma/client/4.9.0_prisma@4.9.0:
     resolution: {integrity: sha512-bz6QARw54sWcbyR1lLnF2QHvRW5R/Jxnbbmwh3u+969vUKXtBkXgSgjDA85nji31ZBlf7+FrHDy5x+5ydGyQDg==}
@@ -6183,7 +6181,7 @@ packages:
     dependencies:
       '@popperjs/core': 2.11.6
       mini-svg-data-uri: 1.4.4
-    dev: false
+    dev: true
 
   /follow-redirects/1.15.2:
     resolution: {integrity: sha512-VQLG33o04KaQ8uYi2tVNbdrWp1QWxNNea+nmIB4EVM28v0hmP17z7aG1+wAkNzVq4KeXTq3221ye5qTJP91JwA==}
@@ -8189,6 +8187,7 @@ packages:
   /mini-svg-data-uri/1.4.4:
     resolution: {integrity: sha512-r9deDe9p5FJUPZAk3A59wGH7Ii9YrjjWw0jmw/liSbHl2CHiyXj6FcDXDu2K3TjVAXqiJdaw3xxwlZZr9E6nHg==}
     hasBin: true
+    dev: true
 
   /minimatch/3.0.8:
     resolution: {integrity: sha512-6FsRAQsxQ61mw+qP1ZzbL9Bc78x2p5OqNgNpnoAFLTrX8n5Kxph0CsnhmKKNXTWjXqU5L0pGPR7hYk+XWZr60Q==}

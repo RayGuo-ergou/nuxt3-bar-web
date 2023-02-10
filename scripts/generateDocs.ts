@@ -6,7 +6,9 @@ import { PrismaClient, DocumentType, document } from '@prisma/client'
 const prisma = new PrismaClient()
 
 const convertTimeZone = (date: Date): string => {
-  return new Date().toLocaleString('en-US', { timeZone: 'Asia/Jakarta' })
+  return new Date(date).toLocaleString('en-US', {
+    timeZone: 'Australia/Sydney',
+  })
 }
 
 /**
@@ -21,14 +23,11 @@ const generateMD = (doc: document): string => {
     description: doc.description,
     draft: doc.draft,
     navigation: doc.navigation,
-    date: doc.updatedAt
-      ? convertTimeZone(doc.updatedAt)
-      : convertTimeZone(doc.createdAt),
+    date: convertTimeZone(doc.createdAt),
     author: doc.author,
     thumbnail: doc.thumbnail,
     externalLink: doc.externalLink,
   }
-
   const docString = JSON.stringify(docHeaders)
 
   const unquoted = docString
@@ -50,14 +49,11 @@ const generateMD = (doc: document): string => {
 /**
  * This function will take an array of documents and generate a markdown file for each
  * @param {document[]} docs
- * @param {boolean} newDoc @default true
+ * @param {string} dir
  * @returns {void}
  */
-const generateFiles = (docs: document[], newDoc = true) => {
-  const filePath = path.join(
-    __dirname,
-    `../content/events/${newDoc ? 'new' : 'old'}`
-  )
+const generateFiles = (docs: document[], dir: string) => {
+  const filePath = path.join(__dirname, `../content/${dir}`)
   docs.forEach((element) => {
     const temp = generateMD(element)
     fs.writeFile(
@@ -72,37 +68,8 @@ const generateFiles = (docs: document[], newDoc = true) => {
   })
 }
 
-// const OldDoc = {
-//   title: 'Old Doc',
-//   description: 'This is an old document',
-//   content: '# This is a document \n This is a paragraph',
-//   type: DocumentType.OLD,
-// }
-
-// const NewDoc = {
-//   title: 'New Doc',
-//   description: 'This is an new document',
-//   content: '# This is a document',
-//   type: DocumentType.NEW,
-// }
-
-// const add = async () => {
-//   await prisma.document.create({
-//     data: OldDoc,
-//   })
-// }
-// add()
-
 // get all documents
 async function main() {
-  // add newdoc and olddoc into db
-  // await prisma.document.create({
-  //   data: NewDoc,
-  // })
-  // await prisma.document.create({
-  //   data: OldDoc,
-  // })
-
   const allDocs = await prisma.document.findMany()
 
   // make two array one for old and one for new
@@ -110,8 +77,8 @@ async function main() {
   const newDocs = allDocs.filter((doc) => doc.type === DocumentType.NEW)
 
   // generate files
-  generateFiles(oldDocs, false)
-  generateFiles(newDocs, true)
+  generateFiles(oldDocs, 'events/old')
+  generateFiles(newDocs, 'events/new')
 }
 
 main()
