@@ -1,11 +1,9 @@
 import { router } from '../trpc'
-import { todoRouter } from './todo'
-import { userRouter } from './user'
+import { feedbackRouter } from './feedback'
 import { authRouter } from './auth'
 
 export const appRouter = router({
-  todo: todoRouter,
-  user: userRouter,
+  feedback: feedbackRouter,
   auth: authRouter,
 })
 

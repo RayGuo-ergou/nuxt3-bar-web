@@ -2,10 +2,11 @@
 const { $client } = useNuxtApp()
 const addUser = async () => {
   try {
-    const x = await $client.user.addUser.mutate({
+    const x = await $client.feedback.addFeedback.mutate({
       phone: 121131,
       name: 'Joh11n Doe',
       email: '',
+      feedback: 'test',
     })
 
     console.log(x)
