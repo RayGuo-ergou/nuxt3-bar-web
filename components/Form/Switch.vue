@@ -30,7 +30,6 @@ const checked = useSyncProps<boolean>(props, 'modelValue', emit)
 const onInputChange = (e: Event) => {
   const target = e.target as HTMLInputElement
   checked.value = target.checked
-  emit('update:modelValue', target.checked)
 }
 
 // lifecycle
