@@ -18,7 +18,14 @@ export function ThemeManager() {
 
   // methods
   const getUserSetting = (): IThemeSettingOptions =>
-    themeUserSetting.value || 'system'
+    themeUserSetting.value || 'dark'
+  // FIXME: since server side does not have window object, so this function always return dark at server side
+  // but client side will return the user setting
+  // so this causes a glitch when the page is loaded
+  // e.g. user system is light, but the page is loaded as dark.
+  // when user wants to change the light, user has to change to dark first to override the system setting in server side
+  // for now change the default theme to dark(above line)
+
   const getSystemTheme = (): ITheme => {
     try {
       return window
@@ -56,6 +63,8 @@ export function ThemeManager() {
       themeCurrent.value = themeSetting
     }
   }
+
+  // watch themeSetting state
   watch(themeSetting, (val) => onThemeSettingChange(val))
   const onThemeSystemChange = () => {
     if (themeSetting.value === 'system') {
