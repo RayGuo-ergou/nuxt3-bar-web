@@ -43,7 +43,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <label :for="id" class="flex cursor-pointer">
+  <label :for="id">
     <label
       :for="id"
       class="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in"
@@ -52,24 +52,15 @@ onMounted(() => {
         :id="id"
         ref="input"
         type="checkbox"
-        class="switch-checkbox absolute block w-6 h-6 rounded-full bg-white dark:bg-slate-900 border-2 border-slate-300 dark:border-slate-600 appearance-none cursor-pointer"
+        class="switch-checkbox peer/checkbox absolute block w-6 h-6 rounded-full bg-white dark:bg-slate-900 border-2 border-slate-300 dark:border-slate-600 appearance-none cursor-pointer checked:translate-x-3/4 duration-500"
         :checked="checked"
         @change="onInputChange"
       />
       <label
         :for="id"
-        class="switch-label block overflow-hidden h-6 rounded-full bg-gray-200 dark:bg-slate-700 cursor-pointer border border-slate-300 dark:border-slate-500"
+        class="switch-label block overflow-hidden h-6 rounded-full bg-gray-200 dark:bg-slate-700 cursor-pointer border border-slate-300 dark:border-slate-500 peer-checked/checkbox:bg-primary-500"
       />
     </label>
     <slot />
   </label>
 </template>
-
-<style>
-.switch-checkbox:checked {
-  right: 0;
-}
-.switch-checkbox:checked + .switch-label {
-  @apply bg-primary-500;
-}
-</style>
