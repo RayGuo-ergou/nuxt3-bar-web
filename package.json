@@ -55,7 +55,7 @@
     "husky": "^8.0.3",
     "js-yaml": "^4.1.0",
     "lint-staged": "^13.1.0",
-    "mavon-editor": "2.10.4",
+    "mavon-editor": "3.0.0-beta",
     "nuxt": "3.0.0",
     "pinia": "^2.0.30",
     "postcss": "^8.4.21",

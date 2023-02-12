@@ -31,7 +31,7 @@ specifiers:
   husky: ^8.0.3
   js-yaml: ^4.1.0
   lint-staged: ^13.1.0
-  mavon-editor: 2.10.4
+  mavon-editor: 3.0.0-beta
   nuxt: 3.0.0
   pinia: ^2.0.30
   postcss: ^8.4.21
@@ -86,7 +86,7 @@ devDependencies:
   husky: 8.0.3
   js-yaml: 4.1.0
   lint-staged: 13.1.0
-  mavon-editor: 2.10.4
+  mavon-editor: 3.0.0-beta
   nuxt: 3.0.0_2rpikuw4euskeoeyne7u522k4y
   pinia: 2.0.30_hmuptsblhheur2tugfgucj7gc4
   postcss: 8.4.21
@@ -6677,6 +6677,16 @@ packages:
     hasBin: true
     dev: true
 
+  /highlight.js-async-webpack/1.0.4:
+    resolution: {integrity: sha512-IC0AwUgNr7BU8pqheaCEvOQvOtIZwO3I4rtbmT489Ndz8loE31IRmBmT6C4qDCbfZjzNO+k2w3VceZjTQ3JQ8Q==}
+    dev: true
+
+  /highlight.js/9.18.5:
+    resolution: {integrity: sha512-a5bFyofd/BHCX52/8i8uJkjr9DYwXIPnM/plwI6W7ezItLGqzt7X2G2nXuYSfsIJdkwwj/g9DG1LkcGJI/dDoA==}
+    deprecated: Support has ended for 9.x series. Upgrade to @latest
+    requiresBuild: true
+    dev: true
+
   /hookable/5.4.2:
     resolution: {integrity: sha512-6rOvaUiNKy9lET1X0ECnyZ5O5kSV0PJbtA5yZUgdEF7fGJEVwSLSislltyt7nFwVVALYHQJtfGeAR2Y0A0uJkg==}
     dev: true
@@ -7685,9 +7695,11 @@ packages:
     resolution: {integrity: sha512-Z1NL3Tb1M9wH4XESsCDEksWoKTdlUafKc4pt0GRwjUyXaCFZ+dc3g2erqB6zm3szA2IUSi7VnPI+o/9jnxh9hw==}
     dev: true
 
-  /mavon-editor/2.10.4:
-    resolution: {integrity: sha512-CFsBLkgt/KZBDg+SJYe2fyYv4zClY149PiwpH0rDAiiP4ae1XNs0GC8nBsoTeipsHcebDLN1QMkt3bUsnMDjQw==}
+  /mavon-editor/3.0.0-beta:
+    resolution: {integrity: sha512-cmGKbkgrlvFtrhEVyEUIO2X30R+0p0cWpWcYZ97p2E7zn5flKakgv3gq/4mrzjb6UTmhUiHis38k+a6fP6XUEQ==}
     dependencies:
+      highlight.js: 9.18.5
+      highlight.js-async-webpack: 1.0.4
       xss: 1.0.14
     dev: true
 
