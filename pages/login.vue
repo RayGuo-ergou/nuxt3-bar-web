@@ -5,10 +5,9 @@
 </template>
 
 <script setup lang="ts">
-const { $client } = useNuxtApp()
 const login = async () => {
   try {
-    const user = await $client.auth.login.query({
+    const user = await useHttp().login({
       email: 'test@test.com',
       password: 'testtest',
     })

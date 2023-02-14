@@ -7,17 +7,31 @@ definePageMeta({
 useHead(() => ({
   title: `Dashboard - ${id}`,
 }))
+
+const test = async () => {
+  try {
+    const res = await useHttp().testProtected()
+    console.log(res)
+  } catch (e) {
+    console.log(e)
+  }
+}
 </script>
 
 <template>
-  <PageWrapper>
-    <PageHeader>
-      <PageTitle text="" class="capitalize" />
-    </PageHeader>
-    <PageBody>
-      <PageSection>
-        <div>{{ id }}</div>
-      </PageSection>
-    </PageBody>
-  </PageWrapper>
+  <div>
+    <Banner />
+    <PageWrapper>
+      <PageHeader>
+        <PageTitle text="PAGE_TITLE" class="capitalize" />
+      </PageHeader>
+      <PageBody>
+        <PageSection>
+          <div>PAGE_BODY</div>
+          <button @click="test">click</button>
+          <RichTextEditor />
+        </PageSection>
+      </PageBody>
+    </PageWrapper>
+  </div>
 </template>

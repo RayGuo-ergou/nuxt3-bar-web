@@ -7,7 +7,7 @@
         <PageHomeBanner />
         <template #fallback>
           <div class="pb-[56.25%] relative">
-            <Loader class="absolute top-1/2 left-1/2" />
+            <Loader class="absolute top-1/2 left-1/2" :size="'xl'" />
           </div>
         </template>
       </ClientOnly>

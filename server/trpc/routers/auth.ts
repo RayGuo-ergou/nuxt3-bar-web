@@ -13,7 +13,7 @@ export const authRouter = router({
   signup: publicProcedure
     .input(
       z.object({
-        email: z.string(),
+        email: z.string().email(),
         password: z.string(),
       })
     )
@@ -32,7 +32,7 @@ export const authRouter = router({
   login: publicProcedure
     .input(
       z.object({
-        email: z.string(),
+        email: z.string().email(),
         password: z.string(),
       })
     )
