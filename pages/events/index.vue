@@ -10,10 +10,28 @@ useHead(() => ({
 
 <template>
   <div>
-    <Banner class="h-[25vh] md:h-[50vh] lg:h-[75vh]" />
-    <!-- TODO: for different sections like new and old events -->
-    <ContentList v-slot="{ list }" path="/events/new">
-      <PageEventsCardList class="max-w-screen-3xl mx-auto" :list="list" />
+    <Banner />
+
+    <!-- XXX: For now I think only new event and old event, so no need of using V-for. -->
+    <ContentList path="/events/new">
+      <template #default="{ list }">
+        <PageEventsCard :title="'Upcoming Events'">
+          <PageEventsCardList :list="list" />
+        </PageEventsCard>
+      </template>
+      <template #not-found>
+        <PageEventsCardNotFound />
+      </template>
+    </ContentList>
+    <ContentList path="/events/old">
+      <template #default="{ list }">
+        <PageEventsCard :title="'Past Events'">
+          <PageEventsCardList :list="list" />
+        </PageEventsCard>
+      </template>
+      <template #not-found>
+        <PageEventsCardNotFound />
+      </template>
     </ContentList>
   </div>
 </template>

@@ -26,7 +26,7 @@ defineProps({
 
 <template>
   <section
-    class="relative bg-cover bg-center bg-no-repeat"
+    class="relative bg-cover bg-center bg-no-repeat h-[25vh] md:h-[50vh] lg:h-[75vh]"
     :style="`background-image: url('${image}')`"
   >
     <div

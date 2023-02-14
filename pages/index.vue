@@ -6,9 +6,8 @@
       <ClientOnly>
         <PageHomeBanner />
         <template #fallback>
-          <div class="pb-[56.25%]">
-            <!-- TODO: preloader -->
-            <p>Loading comments...</p>
+          <div class="pb-[56.25%] relative">
+            <Loader class="absolute top-1/2 left-1/2" />
           </div>
         </template>
       </ClientOnly>

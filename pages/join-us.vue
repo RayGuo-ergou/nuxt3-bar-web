@@ -18,6 +18,7 @@ const test = async () => {
 </script>
 
 <template>
+  <Banner />
   <PageWrapper>
     <PageHeader>
       <PageTitle text="PAGE_TITLE" class="capitalize" />

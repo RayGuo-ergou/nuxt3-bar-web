@@ -9,6 +9,7 @@ useHead(() => ({
 </script>
 
 <template>
+  <Banner />
   <PageWrapper>
     <PageHeader>
       <PageTitle text="service" class="capitalize" />
