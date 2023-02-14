@@ -2,6 +2,7 @@ import { initTRPC, TRPCError } from '@trpc/server'
 import superjson from 'superjson'
 import { ZodError } from 'zod'
 import type { Context } from './context'
+import { serverSupabaseUser } from '#supabase/server'
 
 const t = initTRPC.context<Context>().create({
   transformer: superjson,
@@ -20,23 +21,17 @@ const t = initTRPC.context<Context>().create({
 })
 
 const isAuth = t.middleware(async ({ ctx, next }) => {
-  const token = getCookie(ctx.event, 'sb-access-token')
-  console.log(token)
-  if (!token) {
-    throw new TRPCError({ code: 'UNAUTHORIZED', message: 'Not authenticated' })
-  }
-  // get user from token
-  const { data, error } = await ctx.supabase.auth.getUser(token)
-  console.log('data', data)
-  console.log('error', error)
-  if (error) {
+  const user = await serverSupabaseUser(ctx.event)
+  console.log(user)
+
+  if (!user) {
     throw new TRPCError({ code: 'UNAUTHORIZED', message: 'Not authenticated' })
   }
 
   return next({
     ctx: {
       ...ctx,
-      user: data.user,
+      user,
     },
   })
 })

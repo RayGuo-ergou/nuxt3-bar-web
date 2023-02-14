@@ -1,8 +1,22 @@
 <script setup lang="ts">
 import editor from '../node_modules/mavon-editor/src/mavon-editor.vue'
+const supabase = useSupabaseClient()
 
-const imageAdd = (pos: number, file: File) => {
-  console.log(pos, file)
+const imageAdd = async (pos: number, file: File) => {
+  const formData = new FormData()
+  formData.append('image', file)
+  console.log(formData)
+  const { data, error } = await supabase.storage
+    .from('images')
+    .upload(file.name, formData)
+  // const { data, error } = await supabase.storage.createBucket('images1')
+
+  // const user = useSupabaseUser()
+  // console.log(user)
+  // const data1 = await supabase.auth.getUser()
+  // console.log(data1)
+  console.log(data)
+  console.log(error)
 }
 const test = () => {
   textEditor.value?.$img2Url('1', 'https://www.baidu.com/img/bd_logo1.png')
@@ -57,9 +71,10 @@ const textEditor = ref<InstanceType<typeof editor> | null>(null)
         :language="'en'"
         @img-add="imageAdd"
       />
-      <div>{{ handbook }}</div>
-      <button @click="test">111</button>
     </ClientOnly>
+    <div>{{ handbook }}</div>
+    <button @click="test">111</button>
+    <br />
   </div>
 </template>
 

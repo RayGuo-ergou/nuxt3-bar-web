@@ -4,7 +4,6 @@ import { CookieSerializeOptions } from 'cookie-es'
 import { protectedProcedure, publicProcedure, router } from '../trpc'
 
 const cookieOptions = {
-  httpOnly: true,
   secure: process.env.NODE_ENV === 'production',
   sameSite: 'lax',
 } as CookieSerializeOptions
