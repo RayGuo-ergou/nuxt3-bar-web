@@ -58,3 +58,15 @@ model document {
   createdAt    DateTime     @default(now())
   updatedAt    DateTime     @updatedAt
 }
+
+// subscriber schema
+// ppl who subscribe to the newsletter via mailchimp
+model subscriber {
+  id        Int      @id @default(autoincrement())
+  email     String
+  firstName String
+  lastName  String
+  phone     Int
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}

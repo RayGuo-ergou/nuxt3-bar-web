@@ -6,6 +6,13 @@
     "pinia",
     "supabase",
     "unplugin",
-    "vueuse"
+    "vueuse",
+    "mavon",
+    "alignright",
+    "alignleft",
+    "aligncenter",
+    "imagelink",
+    "readmodel",
+    "htmlcode"
   ]
 }

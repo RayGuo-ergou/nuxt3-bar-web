@@ -1,20 +1,9 @@
-<template>
-  <div class="mavonEditor">
-    <ClientOnly>
-      <mavon-editor
-        ref="textEditor"
-        v-model="handbook"
-        :toolbars="markdownOption"
-        :language="'en'"
-      />
-      <div>{{ handbook }}</div>
-      <button @click="test">111</button>
-    </ClientOnly>
-  </div>
-</template>
 <script setup lang="ts">
 import editor from '../node_modules/mavon-editor/src/mavon-editor.vue'
 
+const imageAdd = (pos: number, file: File) => {
+  console.log(pos, file)
+}
 const test = () => {
   textEditor.value?.$img2Url('1', 'https://www.baidu.com/img/bd_logo1.png')
 }
@@ -58,6 +47,21 @@ const handbook = ref('#### how to use mavonEditor in nuxt.js')
 
 const textEditor = ref<InstanceType<typeof editor> | null>(null)
 </script>
+<template>
+  <div class="mavonEditor">
+    <ClientOnly>
+      <mavon-editor
+        ref="textEditor"
+        v-model="handbook"
+        :toolbars="markdownOption"
+        :language="'en'"
+        @img-add="imageAdd"
+      />
+      <div>{{ handbook }}</div>
+      <button @click="test">111</button>
+    </ClientOnly>
+  </div>
+</template>
 
 <style scoped>
 .mavonEditor {

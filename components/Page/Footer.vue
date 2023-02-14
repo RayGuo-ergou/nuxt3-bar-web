@@ -2,10 +2,6 @@
 import { AppConfigInput } from '@nuxt/schema'
 import p from './../../package.json'
 const app = useAppConfig() as AppConfigInput
-function greet() {
-  alert(`Hello!`)
-  // `event` is the native DOM event
-}
 </script>
 
 <template>
@@ -42,7 +38,6 @@ function greet() {
         </div>
         <NewsLetter
           class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6"
-          @submit-letter="greet"
         />
       </div>
     </section>
