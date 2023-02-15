@@ -9,15 +9,15 @@ useHead(() => ({
 </script>
 
 <template>
-  <div>
-    <Banner />
-    <PageWrapper>
-      <PageHeader>
-        <PageTitle text="PAGE_TITLE" class="capitalize" />
-      </PageHeader>
-      <PageBody>
-        <PageSection> </PageSection>
-      </PageBody>
-    </PageWrapper>
-  </div>
+  <PageWrapper>
+    <template #banner>
+      <Banner />
+    </template>
+    <PageHeader>
+      <PageTitle text="PAGE_TITLE" class="capitalize" />
+    </PageHeader>
+    <PageBody>
+      <PageSection> </PageSection>
+    </PageBody>
+  </PageWrapper>
 </template>
