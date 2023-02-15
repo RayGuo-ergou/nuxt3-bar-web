@@ -14,9 +14,9 @@ const InputShape = z.object({
 export const feedbackRouter = router({
   // add feedback
   addFeedback: publicProcedure.input(InputShape).mutation((req) => {
-    return req.ctx.prisma.user.upsert({
+    return req.ctx.prisma.enquirer.upsert({
       where: {
-        user_email_phone: {
+        Enquirer_email_phone: {
           email: req.input.email,
           phone: req.input.phone,
         },
