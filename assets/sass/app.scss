@@ -32,6 +32,9 @@ html.dark {
     background-color: theme('colors.slate.400');
   }
 }
+html {
+  overflow-x: hidden;
+}
 
 // animations
 @import 'animations/transitions';
