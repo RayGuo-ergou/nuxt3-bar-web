@@ -16,6 +16,12 @@ enum DocumentType {
   OLD
 }
 
+// feedback type
+enum FeedbackType {
+  CONTACT
+  COOPERATE
+}
+
 // a use schema 
 // id as primary key
 // first name, last name, email, phone number
@@ -34,11 +40,12 @@ model Enquirer {
 // a feedback schema
 // link to user
 model Feedback {
-  id         Int      @id @default(autoincrement())
-  enquirer   Enquirer @relation(fields: [enquirerId], references: [id])
+  id         Int          @id @default(autoincrement())
+  enquirer   Enquirer     @relation(fields: [enquirerId], references: [id])
   enquirerId Int
-  createdAt  DateTime @default(now())
-  updatedAt  DateTime @updatedAt
+  type       FeedbackType
+  createdAt  DateTime     @default(now())
+  updatedAt  DateTime     @updatedAt
   text       String
 }
 

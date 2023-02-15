@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+import { FeedbackType } from '@prisma/client'
 // compiler macro
 definePageMeta({
   layout: 'page',
@@ -28,13 +29,12 @@ useHead(() => ({
         >
       </div>
       <template #fallback>
-        <div class="h-[600px]">
-          <!-- TODO: preloader -->
-          <p>Loading comments...</p>
+        <div class="h-[600px] relative">
+          <Loader :size="'xl'" class="absolute top-10 left-1/2" />
         </div>
       </template>
     </ClientOnly>
 
-    <Form />
+    <Form :type="FeedbackType.CONTACT" />
   </div>
 </template>

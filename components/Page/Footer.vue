@@ -43,16 +43,14 @@ const app = useAppConfig() as AppConfigInput
     </section>
     <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
     <section
-      class="px-4 py-6 pt-0 bg-white dark:bg-gray-900 md:flex md:items-center md:justify-around"
+      class="px-4 py-6 pt-0 bg-white dark:bg-gray-900 sm:flex sm:items-center sm:justify-around"
     >
       <span class="text-sm text-gray-500 dark:text-gray-300 sm:text-center"
         >© 2023
         <a href="https://flowbite.com/" class="hover:underline">Flowbite™</a>.
         All Rights Reserved.
       </span>
-      <div class="flex mt-4 space-x-6 sm:justify-center sm:mt-0">
-        <MediaLogo />
-      </div>
+      <MediaLogo class="flex mt-4 space-x-6 sm:mt-0" />
     </section>
   </footer>
 </template>

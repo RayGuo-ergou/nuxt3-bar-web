@@ -7,7 +7,7 @@
 <script setup lang="ts">
 const login = async () => {
   try {
-    const user = await useHttp().login({
+    const user = await useHttp().auth.login({
       email: 'test@test.com',
       password: 'testtest',
     })

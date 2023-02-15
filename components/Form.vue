@@ -1,3 +1,70 @@
+<script setup lang="ts">
+import { FeedbackType } from '@prisma/client'
+import { PropType } from 'vue'
+
+const props = defineProps({
+  type: {
+    type: String as PropType<FeedbackType>,
+    required: true,
+  },
+})
+// a computed based on props.type return different strings
+const title = computed(() => {
+  if (props.type === FeedbackType.CONTACT) {
+    return 'Contact Us'
+  }
+  return 'Join Us'
+})
+
+const subTitle = computed(() => {
+  if (props.type === FeedbackType.CONTACT) {
+    return 'Feel free to contact us for any questions, comments, or inquiries you may have.'
+  }
+  return "We're looking forward to having you on the team!"
+})
+
+const messagePlaceholder = computed(() => {
+  if (props.type === FeedbackType.CONTACT) {
+    return 'Do you have any questions or comments? Please let us know.'
+  }
+  return 'Please kindly let us know which position you are interested in, and share with us the skills and experience that you believe would make you a strong candidate. We would greatly appreciate hearing more about your background.'
+})
+
+const info = computed(() => {
+  if (props.type === FeedbackType.CONTACT) {
+    return 'Contact us TODO: add contact info'
+  }
+  return 'Join us TODO: add join info'
+})
+
+const name = ref('')
+const email = ref('')
+const phone = ref<number>()
+const message = ref('')
+
+const onSubmit = async () => {
+  try {
+    await useHttp().feedback.addFeedback({
+      name: name.value,
+      email: email.value,
+      // phone field is required in the form
+      // so we can safely cast it to number
+      phone: phone.value as number,
+      feedback: message.value,
+      type: props.type,
+    })
+    useToast().success('Thank you for your message!')
+  } catch (e: any) {
+    useToast().error(`${useTRPCError(e)}. Please try again later.`)
+  }
+
+  // reset all fields
+  name.value = ''
+  email.value = ''
+  phone.value = undefined
+  message.value = ''
+}
+</script>
 <template>
   <!--
   This component uses @tailwindcss/forms
@@ -9,17 +76,19 @@
 -->
 
   <section class="bg-white dark:bg-gray-900">
-    <div class="mx-auto max-w-screen-2xl px-4 py-16 sm:px-6 lg:px-8">
+    <div class="mx-auto max-w-screen-2xl px-4 py-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 gap-x-16 gap-y-8 lg:grid-cols-5">
         <div class="lg:col-span-2 lg:py-12">
           <p class="max-w-xl text-lg">
-            At the same time, the fact that we are wholly owned and totally
-            independent from manufacturer and other group control gives you
-            confidence that we will only recommend what is right for you.
+            {{ info }}
           </p>
 
-          <div class="mt-8">
-            <a href="" class="text-2xl font-bold text-pink-600">
+          <div v-if="type === FeedbackType.CONTACT" class="mt-8">
+            <!-- TODO: use a ref or reactive for the phone number -->
+            <a
+              href="tel:+496170961709"
+              class="text-2xl font-bold text-cyan-600"
+            >
               0151 475 4450
             </a>
 
@@ -30,16 +99,22 @@
         </div>
 
         <div
-          class="rounded-lg bg-white dark:bg-gray-800 p-8 shadow-lg lg:col-span-3 lg:p-12"
+          class="rounded-lg bg-white dark:bg-gray-800 p-6 shadow-lg lg:col-span-3 lg:p-8"
         >
-          <form action="" class="space-y-4">
+          <div class="text-center mb-4">
+            <div class="text-3xl">{{ title }}</div>
+            <div class="text-sm">{{ subTitle }}</div>
+          </div>
+          <form class="space-y-4" @submit.prevent="onSubmit">
             <div>
               <label class="sr-only" for="name">Name</label>
               <input
                 id="name"
+                v-model="name"
                 class="w-full rounded-lg dark:text-gray-600 border-gray-200 p-3 text-sm"
-                placeholder="Name"
+                placeholder="Your full name"
                 type="text"
+                required
               />
             </div>
 
@@ -48,9 +123,11 @@
                 <label class="sr-only" for="email">Email</label>
                 <input
                   id="email"
+                  v-model="email"
                   class="w-full rounded-lg dark:text-gray-600 border-gray-200 p-3 text-sm"
                   placeholder="Email address"
                   type="email"
+                  required
                 />
               </div>
 
@@ -58,9 +135,12 @@
                 <label class="sr-only" for="phone">Phone</label>
                 <input
                   id="phone"
+                  v-model="phone"
                   class="w-full rounded-lg dark:text-gray-600 border-gray-200 p-3 text-sm"
                   placeholder="Phone Number"
-                  type="tel"
+                  type="number"
+                  pattern="[0-9]*"
+                  required
                 />
               </div>
             </div>
@@ -69,9 +149,11 @@
               <label class="sr-only" for="message">Message</label>
               <textarea
                 id="message"
+                v-model="message"
                 class="w-full rounded-lg dark:text-gray-600 border-gray-200 p-3 text-sm"
-                placeholder="Message"
+                :placeholder="messagePlaceholder"
                 rows="8"
+                required
               ></textarea>
             </div>
 

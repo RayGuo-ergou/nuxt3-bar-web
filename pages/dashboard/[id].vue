@@ -10,7 +10,7 @@ useHead(() => ({
 
 const test = async () => {
   try {
-    const res = await useHttp().testProtected()
+    const res = await useHttp().auth.testProtected()
     console.log(res)
   } catch (e) {
     console.log(e)

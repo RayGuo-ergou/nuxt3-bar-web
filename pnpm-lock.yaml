@@ -52,6 +52,7 @@ specifiers:
   vite: '>=2.9.0 <3.0.0 || >=3.0.0-0 <3.0.0'
   vitest: ^0.28.5
   vue: ^3.2.47
+  vue-toastification: 2.0.0-rc.5
   vue-tsc: ^1.0.24
   webpack: '>=5.0.0 <6.0.0'
   zod: ^3.20.6
@@ -108,6 +109,7 @@ devDependencies:
   vite: 3.0.0-beta.10_sass@1.58.1
   vitest: 0.28.5_sass@1.58.1
   vue: 3.2.47
+  vue-toastification: 2.0.0-rc.5_vue@3.2.47
   vue-tsc: 1.0.24_typescript@4.9.5
   webpack: 5.75.0
   zod: 3.20.6
@@ -11997,6 +11999,14 @@ packages:
     dependencies:
       de-indent: 1.0.2
       he: 1.2.0
+    dev: true
+
+  /vue-toastification/2.0.0-rc.5_vue@3.2.47:
+    resolution: {integrity: sha512-q73e5jy6gucEO/U+P48hqX+/qyXDozAGmaGgLFm5tXX4wJBcVsnGp4e/iJqlm9xzHETYOilUuwOUje2Qg1JdwA==}
+    peerDependencies:
+      vue: ^3.0.2
+    dependencies:
+      vue: 3.2.47
     dev: true
 
   /vue-tsc/1.0.24_typescript@4.9.5:

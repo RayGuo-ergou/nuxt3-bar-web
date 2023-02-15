@@ -1,19 +1,19 @@
 <script lang="ts" setup>
 const { $client } = useNuxtApp()
-const addUser = async () => {
-  try {
-    const x = await $client.feedback.addFeedback.mutate({
-      phone: 121131,
-      name: 'Joh11n Doe',
-      email: '',
-      feedback: 'test',
-    })
+// const addUser = async () => {
+//   try {
+//     const x = await $client.feedback.addFeedback.mutate({
+//       phone: 121131,
+//       name: 'Joh11n Doe',
+//       email: '',
+//       feedback: 'test',
+//     })
 
-    console.log(x)
-  } catch (e) {
-    console.log(e)
-  }
-}
+//     console.log(x)
+//   } catch (e) {
+//     console.log(e)
+//   }
+// }
 // compiler macro
 definePageMeta({
   layout: 'page',
@@ -31,7 +31,7 @@ useHead(() => ({
     <PageBody>
       <PageSection>
         <div>PAGE_BODY</div>
-        <button @click="addUser">click</button>
+        <!-- <button @click="addUser">click</button> -->
       </PageSection>
     </PageBody>
   </PageWrapper>

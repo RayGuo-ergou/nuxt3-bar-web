@@ -1,4 +1,5 @@
 import { z } from 'zod'
+import { FeedbackType } from '@prisma/client'
 import { publicProcedure, router } from '../trpc'
 
 // create own type with zod instead of using prisma generated type
@@ -6,9 +7,10 @@ import { publicProcedure, router } from '../trpc'
 // and zod can be used to validate input
 const InputShape = z.object({
   name: z.string(),
-  email: z.string(),
-  phone: z.number(),
+  email: z.string().email(),
+  phone: z.number().int(),
   feedback: z.string(),
+  type: z.enum([FeedbackType.CONTACT, FeedbackType.COOPERATE]),
 })
 
 export const feedbackRouter = router({
@@ -25,6 +27,7 @@ export const feedbackRouter = router({
         feedbacks: {
           create: {
             text: req.input.feedback,
+            type: req.input.type,
           },
         },
       },
@@ -35,6 +38,7 @@ export const feedbackRouter = router({
         feedbacks: {
           create: {
             text: req.input.feedback,
+            type: req.input.type,
           },
         },
       },
