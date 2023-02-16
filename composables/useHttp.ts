@@ -24,7 +24,7 @@ export const useHttp = () => {
     login: (data: LoginData) => {
       // no need to validate data here, it's already validated in the server
       // but the form needs to be validated before calling this function
-      return $client.auth.login.query(data)
+      return $client.auth.login.useQuery(data)
     },
   }
 
@@ -34,8 +34,15 @@ export const useHttp = () => {
     },
   }
 
+  const recaptcha = {
+    verify: (token: string) => {
+      return $client.recaptcha.verify.mutate({ token })
+    },
+  }
+
   return {
     auth,
     feedback,
+    recaptcha,
   }
 }

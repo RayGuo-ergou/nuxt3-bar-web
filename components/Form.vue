@@ -1,70 +1,3 @@
-<script setup lang="ts">
-import { FeedbackType } from '@prisma/client'
-import { PropType } from 'vue'
-
-const props = defineProps({
-  type: {
-    type: String as PropType<FeedbackType>,
-    required: true,
-  },
-})
-// a computed based on props.type return different strings
-const title = computed(() => {
-  if (props.type === FeedbackType.CONTACT) {
-    return 'Contact Us'
-  }
-  return 'Join Us'
-})
-
-const subTitle = computed(() => {
-  if (props.type === FeedbackType.CONTACT) {
-    return 'Feel free to contact us for any questions, comments, or inquiries you may have.'
-  }
-  return "We're looking forward to having you on the team!"
-})
-
-const messagePlaceholder = computed(() => {
-  if (props.type === FeedbackType.CONTACT) {
-    return 'Do you have any questions or comments? Please let us know.'
-  }
-  return 'Please kindly let us know which position you are interested in, and share with us the skills and experience that you believe would make you a strong candidate. We would greatly appreciate hearing more about your background.'
-})
-
-const info = computed(() => {
-  if (props.type === FeedbackType.CONTACT) {
-    return 'Contact us TODO: add contact info'
-  }
-  return 'Join us TODO: add join info'
-})
-
-const name = ref('')
-const email = ref('')
-const phone = ref<number>()
-const message = ref('')
-
-const onSubmit = async () => {
-  try {
-    await useHttp().feedback.addFeedback({
-      name: name.value,
-      email: email.value,
-      // phone field is required in the form
-      // so we can safely cast it to number
-      phone: phone.value as number,
-      feedback: message.value,
-      type: props.type,
-    })
-    useToast().success('Thank you for your message!')
-  } catch (e: any) {
-    useToast().error(`${useTRPCError(e)}. Please try again later.`)
-  }
-
-  // reset all fields
-  name.value = ''
-  email.value = ''
-  phone.value = undefined
-  message.value = ''
-}
-</script>
 <template>
   <!--
   This component uses @tailwindcss/forms
@@ -156,6 +89,15 @@ const onSubmit = async () => {
                 required
               ></textarea>
             </div>
+            <vue-recaptcha
+              ref="recaptchaRef"
+              :key="recaptchaReloadKey"
+              :sitekey="recaptchaKey"
+              :theme="theme"
+              @verify="onVerify"
+              @error="onError"
+              @expired="onExpired"
+            />
 
             <div class="mt-4">
               <button
@@ -186,3 +128,120 @@ const onSubmit = async () => {
     </div>
   </section>
 </template>
+
+<script setup lang="ts">
+import { FeedbackType } from '@prisma/client'
+import { PropType } from 'vue'
+import { VueRecaptcha } from 'vue-recaptcha'
+import { ITheme } from '~~/utils/theme'
+
+const recaptchaReloadKey = ref(0)
+const theme = useState<ITheme>('theme.current')
+const recaptchaKey = useRuntimeConfig().public.reCAPTCHA_key
+const recaptchaRef = ref<VueRecaptcha>()
+const name = ref('')
+const email = ref('')
+const phone = ref<number>()
+const message = ref('')
+const recaptchaPass = ref<boolean>(false)
+
+const props = defineProps({
+  type: {
+    type: String as PropType<FeedbackType>,
+    required: true,
+  },
+})
+
+// a computed based on props.type return different strings
+const title = computed(() => {
+  if (props.type === FeedbackType.CONTACT) {
+    return 'Contact Us'
+  }
+  return 'Join Us'
+})
+
+const subTitle = computed(() => {
+  if (props.type === FeedbackType.CONTACT) {
+    return 'Feel free to contact us for any questions, comments, or inquiries you may have.'
+  }
+  return "We're looking forward to having you on the team!"
+})
+
+const messagePlaceholder = computed(() => {
+  if (props.type === FeedbackType.CONTACT) {
+    return 'Do you have any questions or comments? Please let us know.'
+  }
+  return 'Please kindly let us know which position you are interested in, and share with us the skills and experience that you believe would make you a strong candidate. We would greatly appreciate hearing more about your background.'
+})
+
+const info = computed(() => {
+  if (props.type === FeedbackType.CONTACT) {
+    return 'Contact us TODO: add contact info'
+  }
+  return 'Join us TODO: add join info'
+})
+
+// watch theme when change reload recaptcha
+watch(theme, () => {
+  recaptchaReloadKey.value += 1
+})
+
+const onExpired = () => {
+  if (recaptchaRef.value) {
+    recaptchaRef.value.reset()
+  }
+}
+
+const onVerify = async (token: string) => {
+  try {
+    const { success, 'error-codes': errorCodes } =
+      await useHttp().recaptcha.verify(token)
+    // first check if errors
+    if (errorCodes) {
+      // error codes convert to string, fill with ,
+      const errorAll = errorCodes.join(', ')
+      useToast().error(`Google reCAPTCHA error: ${errorAll}`)
+      recaptchaRef.value?.reset()
+    }
+    // because if errorCodes is not null, success is false
+    // so we don't need to check success
+    recaptchaPass.value = success
+  } catch (e) {
+    useToast().error(`${useTRPCError(e)}. Please try again later.`)
+  }
+}
+
+const onError = (error: string) => {
+  // do something
+  console.log(error)
+}
+
+const onSubmit = async () => {
+  if (!recaptchaPass.value) {
+    useToast().error('Please verify that you are not a robot.')
+    return
+  }
+  try {
+    await useHttp().feedback.addFeedback({
+      name: name.value,
+      email: email.value,
+      // phone field is required in the form
+      // so we can safely cast it to number
+      phone: phone.value as number,
+      feedback: message.value,
+      type: props.type,
+    })
+    useToast().success('Thank you for your message!')
+  } catch (e: any) {
+    useToast().error(`${useTRPCError(e)}. Please try again later.`)
+  }
+
+  // reset all fields
+  name.value = ''
+  email.value = ''
+  phone.value = undefined
+  message.value = ''
+  recaptchaPass.value = false
+  recaptchaRef.value?.reset()
+}
+</script>

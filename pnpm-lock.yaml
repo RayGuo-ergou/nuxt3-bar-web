@@ -52,6 +52,7 @@ specifiers:
   vite: '>=2.9.0 <3.0.0 || >=3.0.0-0 <3.0.0'
   vitest: ^0.28.5
   vue: ^3.2.47
+  vue-recaptcha: ^2.0.3
   vue-toastification: 2.0.0-rc.5
   vue-tsc: ^1.0.24
   webpack: '>=5.0.0 <6.0.0'
@@ -109,6 +110,7 @@ devDependencies:
   vite: 3.0.0-beta.10_sass@1.58.1
   vitest: 0.28.5_sass@1.58.1
   vue: 3.2.47
+  vue-recaptcha: 2.0.3_vue@3.2.47
   vue-toastification: 2.0.0-rc.5_vue@3.2.47
   vue-tsc: 1.0.24_typescript@4.9.5
   webpack: 5.75.0
@@ -11983,6 +11985,19 @@ packages:
       semver: 7.3.8
     transitivePeerDependencies:
       - supports-color
+    dev: true
+
+  /vue-recaptcha/2.0.3_vue@3.2.47:
+    resolution: {integrity: sha512-Rz0kLIETUgmOrp7CxFvaFE65DkhKdWu4pteWOTt2i+yTajTHPqtyOW6DqTg0BvALWTm+WUvWVV7k5XXFijQnBw==}
+    peerDependencies:
+      '@vue/composition-api': ^1.0.0-beta.1
+      vue: ^2.0.0 || ^3.0.0
+    peerDependenciesMeta:
+      '@vue/composition-api':
+        optional: true
+    dependencies:
+      vue: 3.2.47
+      vue-demi: 0.13.11_vue@3.2.47
     dev: true
 
   /vue-router/4.1.6_vue@3.2.47:
