@@ -1,8 +1,26 @@
+import path from 'path'
+import { createRequire } from 'module'
 import UnpluginComponentsVite from 'unplugin-vue-components/vite'
 import IconsResolver from 'unplugin-icons/resolver'
 
+const require = createRequire(import.meta.url)
+
+const prismaClient = require
+  .resolve('@prisma/client')
+  .replace(
+    /@prisma(\/|\\)client(\/|\\)index\.js/,
+    '.prisma/client/index-browser.js'
+  )
+
+const prismaIndexBrowser = path.normalize(
+  path.relative(process.cwd(), prismaClient)
+)
+
 // https://v3.nuxtjs.org/docs/directory-structure/nuxt.config
 export default defineNuxtConfig({
+  alias: {
+    '.prisma/client/index-browser': prismaIndexBrowser,
+  },
   // server side rendering mode
   ssr: true,
 
@@ -75,6 +93,12 @@ export default defineNuxtConfig({
     },
     highlight: {
       theme: 'github-dark',
+    },
+  },
+
+  runtimeConfig: {
+    public: {
+      reCAPTCHA_key: process.env.RECAPTCHA_KEY,
     },
   },
 })
