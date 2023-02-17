@@ -34,7 +34,7 @@ defineProps({
     ></div>
 
     <div
-      class="relative mx-auto max-w-screen-xl top-1/3 sm:px-6 lg:px-8 lg:top-2/3 lg:left-10"
+      class="relative mx-auto max-w-xl top-1/3 sm:px-6 lg:px-8 lg:top-2/3 lg:left-10"
     >
       <div class="max-w-xl text-center sm:text-left">
         <h1 class="text-3xl font-extrabold sm:text-5xl text-gray-700">
