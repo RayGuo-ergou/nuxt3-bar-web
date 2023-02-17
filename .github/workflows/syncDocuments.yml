@@ -51,16 +51,11 @@ jobs:
       - name: reset database
         run: |
           pnpm database:reset
-
-  sync:
-    name: Sync documents from database
-    runs-on: ubuntu-latest
-    needs: install
-    steps:
-      # now just testing,
-      # in the future, we do not need to reset the database
       - name: sync documents
-        run: bash ./scripts/syncMDwithDB.bash
+        run: |
+          chmod +x ./scripts/syncMDwithDB.bash
+          bash ./scripts/syncMDwithDB.bash
+        shell: bash
       - name: commit
         run: |
           git config --local user.email "${{ env.GITHUB_EMAIL }}"
