@@ -1,5 +1,3 @@
-<script lang="ts" setup></script>
-
 <template>
   <NuxtLayout name="page">
     <template #cover>

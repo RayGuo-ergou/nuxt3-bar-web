@@ -2,8 +2,8 @@
   <div role="status">
     <svg
       aria-hidden="true"
-      class="mr-2 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600"
-      :class="size"
+      class="mr-2 animate-spin"
+      :class="[size, textColor, `dark:${darkTextColor}`, fillColor]"
       viewBox="0 0 100 101"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -22,16 +22,72 @@
 </template>
 
 <script setup lang="ts">
+import { PropType } from 'vue'
+
 enum loaderSize {
   'sm' = 4,
   'md' = 6,
   'lg' = 8,
   'xl' = 10,
 }
+
+type colorType =
+  | 'slate'
+  | 'gray'
+  | 'zinc'
+  | 'neutral'
+  | 'stone'
+  | 'red'
+  | 'orange'
+  | 'amber'
+  | 'yellow'
+  | 'lime'
+  | 'green'
+  | 'emerald'
+  | 'teal'
+  | 'cyan'
+  | 'sky'
+  | 'blue'
+  | 'indigo'
+  | 'violet'
+  | 'purple'
+  | 'fuchsia'
+  | 'pink'
+  | 'rose'
+  | 'primary'
+
+type colorLevel =
+  | '50'
+  | '100'
+  | '200'
+  | '300'
+  | '400'
+  | '500'
+  | '600'
+  | '700'
+  | '800'
+  | '900'
+
+type generalType = 'inherit' | 'current' | 'transparent' | 'black' | 'white'
+type textColor = `text-${colorType}-${colorLevel}` | `text-${generalType}`
+type fillColor = `fill-${colorType}-${colorLevel}` | `fill-${generalType}`
+
 const props = defineProps({
   size: {
-    type: String as () => keyof typeof loaderSize,
+    type: String as PropType<keyof typeof loaderSize>,
     default: 'md',
+  },
+  textColor: {
+    type: String as PropType<textColor>,
+    default: 'text-gray-200',
+  },
+  darkTextColor: {
+    type: String as PropType<textColor>,
+    default: 'text-gray-600',
+  },
+  fillColor: {
+    type: String as PropType<fillColor>,
+    default: 'fill-blue-600',
   },
 })
 const size = computed(() => {

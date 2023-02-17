@@ -32,8 +32,20 @@
         </div>
 
         <div
-          class="rounded-lg bg-white dark:bg-gray-800 p-6 shadow-lg lg:col-span-3 lg:p-8"
+          class="rounded-lg bg-white dark:bg-gray-800 p-6 shadow-lg lg:col-span-3 lg:p-8 relative"
         >
+          <div
+            v-show="showLoader"
+            class="absolute inset-0 bg-neutral-400 opacity-50 z-10 rounded-lg dark:bg-neutral-600"
+          >
+            <loader
+              :size="'xl'"
+              class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+              :text-color="'text-black'"
+              :fill-color="'fill-teal-600'"
+              :dark-text-color="'text-white'"
+            />
+          </div>
           <div class="text-center mb-4">
             <div class="text-3xl">{{ title }}</div>
             <div class="text-sm">{{ subTitle }}</div>
@@ -144,6 +156,7 @@ const email = ref('')
 const phone = ref<number>()
 const message = ref('')
 const recaptchaPass = ref<boolean>(false)
+const showLoader = ref<boolean>(false)
 
 const props = defineProps({
   type: {
@@ -221,6 +234,7 @@ const onSubmit = async () => {
     useToast().error('Please verify that you are not a robot.')
     return
   }
+  showLoader.value = true
   try {
     await useHttp().feedback.addFeedback({
       name: name.value,
@@ -243,5 +257,6 @@ const onSubmit = async () => {
   message.value = ''
   recaptchaPass.value = false
   recaptchaRef.value?.reset()
+  showLoader.value = false
 }
 </script>
