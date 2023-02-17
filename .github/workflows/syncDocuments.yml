@@ -42,6 +42,8 @@ jobs:
           pnpm install -D typescript ts-node @types/node prisma @prisma/client
       - name: create .env
         run: echo "DATABASE_URL=${{ secrets.DATABASE_URL }}" >> .env
+      - name: remove import nuxt tsconfig.json
+        run: sed -i '3d' tsconfig.json
       - name: reset database
         run: |
           pnpm database:reset
