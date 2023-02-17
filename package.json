@@ -23,7 +23,8 @@
     "generate:locales": "node tools/translator.js ./locales en.yml",
     "vercel-build": "prisma generate && prisma migrate deploy && nuxt build",
     "sync:content": "bash ./scripts/syncMDwithDB.bash",
-    "database:reset": "prisma migrate reset --force"
+    "database:reset": "prisma migrate reset --force",
+    "database:deploy": "prisma generate && prisma migrate deploy"
   },
   "devDependencies": {
     "@babel/core": "^7.20.12",
