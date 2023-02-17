@@ -40,6 +40,8 @@ jobs:
       - name: Install and Build 🔧 # This example project is built using npm and outputs the result to the 'build' folder. Replace with the commands required to build your project, or remove this step entirely if your site is pre-built.
         run: |
           pnpm install -D typescript ts-node @types/node prisma @prisma/client
+      - name: create .env
+        run: echo "DATABASE_URL=${{ secrets.DATABASE_URL }}" >> .env
       - name: reset database
         run: |
           pnpm database:reset
@@ -49,8 +51,6 @@ jobs:
     runs-on: ubuntu-latest
     needs: install
     steps:
-      - name: create .env
-        run: echo "DATABASE_URL=${{ secrets.DATABASE_URL }}" >> .env
       # now just testing,
       # in the future, we do not need to reset the database
       - name: sync documents
