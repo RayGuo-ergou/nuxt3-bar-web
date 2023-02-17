@@ -48,7 +48,7 @@ jobs:
     steps:
       - name: create .env
         run: |
-          echo "DATABASE_URL=${{ secret.DATABASE_URL }}" >> .env
+          echo "DATABASE_URL=${{ secrets.DATABASE_URL }}" >> .env
       # now just testing,
       # in the future, we do not need to reset the database
       - name: reset database
