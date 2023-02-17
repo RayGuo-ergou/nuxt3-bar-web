@@ -5,7 +5,8 @@ export const documents = [
     description: 'This is an new document',
     draft: false,
     navigation: true,
-    content: '# This is a document',
+    content:
+      '# This is a document \n abc \n \n def \n ghi \n jkl \n mno \n pqr \n stu \n vwx \n yz \n 123 \n 456 \n 789 \n 0',
     author: 'admin',
     type: DocumentType.NEW,
     thumbnail: 'https://picsum.photos/200/300',

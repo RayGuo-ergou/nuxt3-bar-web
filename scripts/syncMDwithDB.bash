@@ -7,5 +7,4 @@ echo "SCRIPT_DIR: $SCRIPT_DIR"
 rm $SCRIPT_DIR/../content/events/new/*.md
 rm $SCRIPT_DIR/../content/events/old/*.md
 
-tsc $SCRIPT_DIR/generateDocs.ts 
-node $SCRIPT_DIR/generateDocs.js
+ts-node --compiler-options {\"module\":\"CommonJS\"} $SCRIPT_DIR/generateDocs.ts 
