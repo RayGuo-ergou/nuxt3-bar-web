@@ -1,0 +1,43 @@
+import { DocumentType } from '@prisma/client'
+export const documents = [
+  {
+    title: 'New Doc',
+    description: 'This is an new document',
+    draft: false,
+    navigation: true,
+    content: '# This is a document',
+    author: 'admin',
+    type: DocumentType.NEW,
+    thumbnail: 'https://picsum.photos/200/300',
+  },
+  {
+    title: 'Old Doc',
+    description: 'This is an old document',
+    draft: false,
+    navigation: true,
+    content: '# This is a document',
+    author: 'admin',
+    type: DocumentType.OLD,
+    thumbnail: 'https://picsum.photos/200/300',
+  },
+  {
+    title: 'New Doc',
+    description: 'This is an new document',
+    draft: false,
+    navigation: true,
+    content: '# This is a document',
+    author: 'admin',
+    type: DocumentType.NEW,
+    thumbnail: 'https://picsum.photos/200/300',
+  },
+  {
+    title: 'Old Doc',
+    description: 'This is an old document',
+    draft: false,
+    navigation: true,
+    content: '# This is a document',
+    author: 'admin',
+    type: DocumentType.OLD,
+    thumbnail: 'https://picsum.photos/200/300',
+  },
+]
