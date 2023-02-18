@@ -20,6 +20,9 @@ const prismaIndexBrowser = path.normalize(
 export default defineNuxtConfig({
   alias: {
     '.prisma/client/index-browser': prismaIndexBrowser,
+    '@mailchimp/mailchimp_marketing': '@types/@mailchimp/mailchimp_marketing',
+    '@mailchimp/mailchimp_marketing/*':
+      '@types/@mailchimp/mailchimp_marketing/*',
   },
   // server side rendering mode
   ssr: true,
