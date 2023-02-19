@@ -103,5 +103,6 @@ export default defineNuxtConfig({
     reCAPTCHA_server_key: process.env.RECAPTCHA_SECRET_KEY,
     mailchimp_key: process.env.MAILCHIMP_API_KEY,
     mailchimp_dc: process.env.MAILCHIMP_DC,
+    mailchimp_list: process.env.MAILCHIMP_LIST_ID,
   },
 })

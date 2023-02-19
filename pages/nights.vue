@@ -23,11 +23,14 @@ useHead(() => ({
 }))
 
 const test = async () => {
-  try {
-    const result = await $client.mailchimp.ping.useQuery()
-    console.log(result)
-  } catch (error) {
-    console.log(error)
+  const { data, error } = await useHttp().mailchimp.ping()
+  console.log(data)
+  console.log(error)
+  if (error.value) {
+    console.log('has error')
+  }
+  if (data.value) {
+    console.log('has data')
   }
 }
 </script>
