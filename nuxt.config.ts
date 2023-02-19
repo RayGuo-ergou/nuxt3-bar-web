@@ -20,9 +20,6 @@ const prismaIndexBrowser = path.normalize(
 export default defineNuxtConfig({
   alias: {
     '.prisma/client/index-browser': prismaIndexBrowser,
-    '@mailchimp/mailchimp_marketing': '@types/@mailchimp/mailchimp_marketing',
-    '@mailchimp/mailchimp_marketing/*':
-      '@types/@mailchimp/mailchimp_marketing/*',
   },
   // server side rendering mode
   ssr: true,
@@ -104,5 +101,7 @@ export default defineNuxtConfig({
       reCAPTCHA_key: process.env.RECAPTCHA_SITE_KEY,
     },
     reCAPTCHA_server_key: process.env.RECAPTCHA_SECRET_KEY,
+    mailchimp_key: process.env.MAILCHIMP_API_KEY,
+    mailchimp_dc: process.env.MAILCHIMP_DC,
   },
 })

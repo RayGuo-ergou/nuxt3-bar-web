@@ -40,9 +40,16 @@ export const useHttp = () => {
     },
   }
 
+  const mailchimp = {
+    ping: () => {
+      return $client.mailchimp.ping.useQuery()
+    },
+  }
+
   return {
     auth,
     feedback,
     recaptcha,
+    mailchimp,
   }
 }

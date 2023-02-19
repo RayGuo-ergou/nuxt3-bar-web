@@ -21,6 +21,15 @@ definePageMeta({
 useHead(() => ({
   title: 'nights',
 }))
+
+const test = async () => {
+  try {
+    const result = await $client.mailchimp.ping.useQuery()
+    console.log(result)
+  } catch (error) {
+    console.log(error)
+  }
+}
 </script>
 
 <template>
@@ -31,7 +40,7 @@ useHead(() => ({
     <PageBody>
       <PageSection>
         <div>PAGE_BODY</div>
-        <!-- <button @click="addUser">click</button> -->
+        <button @click="test">click</button>
       </PageSection>
     </PageBody>
   </PageWrapper>
