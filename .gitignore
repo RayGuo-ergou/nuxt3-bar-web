@@ -21,3 +21,7 @@ dist
 
 # pagea backup
 /pagesBackup
+
+# for testing
+test.js 
+test.ts
