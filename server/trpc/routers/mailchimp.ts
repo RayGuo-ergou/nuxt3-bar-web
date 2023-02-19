@@ -7,7 +7,7 @@ const config = useRuntimeConfig()
 const listId = config.mailchimp_list
 
 mailchimp.setConfig({
-  apiKey: '1' + config.mailchimp_key,
+  apiKey: config.mailchimp_key,
   server: config.mailchimp_dc,
 })
 
