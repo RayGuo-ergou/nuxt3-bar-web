@@ -5,6 +5,10 @@
 <script setup lang="ts">
 definePageMeta({
   middleware: 'auth',
+  layout: 'dashboard',
+})
+onMounted(() => {
+  const a = useState('dashboard', () => 'documents')
 })
 </script>
 
