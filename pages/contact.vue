@@ -35,6 +35,6 @@ useHead(() => ({
       </template>
     </ClientOnly>
 
-    <Form :type="FeedbackType.CONTACT" />
+    <ContactForm :type="FeedbackType.CONTACT" />
   </div>
 </template>

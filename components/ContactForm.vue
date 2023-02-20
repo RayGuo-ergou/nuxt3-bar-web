@@ -101,15 +101,8 @@
                 required
               ></textarea>
             </div>
-            <vue-recaptcha
-              ref="recaptchaRef"
-              :key="recaptchaReloadKey"
-              :sitekey="recaptchaKey"
-              :theme="theme"
-              @verify="onVerify"
-              @error="onError"
-              @expired="onExpired"
-            />
+
+            <Recaptcha ref="recaptchaRef" @verify="onVerify" />
 
             <div class="mt-4">
               <button
@@ -144,19 +137,15 @@
 <script setup lang="ts">
 import { FeedbackType } from '@prisma/client'
 import { PropType } from 'vue'
-import { VueRecaptcha } from 'vue-recaptcha'
-import { ITheme } from '~~/utils/theme'
+import recaptcha from '~~/components/Recaptcha.vue'
 
-const recaptchaReloadKey = ref(0)
-const theme = useState<ITheme>('theme.current')
-const recaptchaKey = useRuntimeConfig().public.reCAPTCHA_key
-const recaptchaRef = ref<VueRecaptcha>()
 const name = ref('')
 const email = ref('')
 const phone = ref<number>()
 const message = ref('')
 const recaptchaPass = ref<boolean>(false)
 const showLoader = ref<boolean>(false)
+const recaptchaRef = ref<typeof recaptcha>()
 
 const props = defineProps({
   type: {
@@ -194,39 +183,9 @@ const info = computed(() => {
   return 'Join us TODO: add join info'
 })
 
-// watch theme when change reload recaptcha
-watch(theme, () => {
-  recaptchaReloadKey.value += 1
-})
-
-const onExpired = () => {
-  if (recaptchaRef.value) {
-    recaptchaRef.value.reset()
-  }
-}
-
-const onVerify = async (token: string) => {
-  try {
-    const { success, 'error-codes': errorCodes } =
-      await useHttp().recaptcha.verify(token)
-    // first check if errors
-    if (errorCodes) {
-      // error codes convert to string, fill with ,
-      const errorAll = errorCodes.join(', ')
-      useToast().error(`Google reCAPTCHA error: ${errorAll}`)
-      recaptchaRef.value?.reset()
-    }
-    // because if errorCodes is not null, success is false
-    // so we don't need to check success
-    recaptchaPass.value = success
-  } catch (e) {
-    useToast().error(`${useTRPCError(e)}. Please try again later.`)
-  }
-}
-
-const onError = (error: string) => {
-  // do something
-  console.log(error)
+const onVerify = (pass: boolean) => {
+  console.log(pass)
+  recaptchaPass.value = pass
 }
 
 const onSubmit = async () => {
