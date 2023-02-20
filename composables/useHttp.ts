@@ -26,6 +26,13 @@ type FeedbackData = {
   type: FeedbackType
 }
 
+type MailSubscriptionData = {
+  email: string
+  firstName: string
+  lastName: string
+  phone: number
+}
+
 export const useHttp = () => {
   const { $client } = useNuxtApp()
   const auth = {
@@ -70,6 +77,9 @@ export const useHttp = () => {
      */
     ping: () => {
       return $client.mailchimp.ping.useQuery()
+    },
+    addSubscriber: (data: MailSubscriptionData) => {
+      return $client.mailchimp.addSubscriber.mutate(data)
     },
   }
 

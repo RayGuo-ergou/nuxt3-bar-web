@@ -76,4 +76,6 @@ model subscriber {
   phone     Int
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+
+  @@unique([email, phone], name: "Subscriber_email_phone")
 }

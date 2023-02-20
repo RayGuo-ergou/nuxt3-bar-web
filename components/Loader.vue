@@ -3,7 +3,7 @@
     <svg
       aria-hidden="true"
       class="mr-2 animate-spin"
-      :class="[size, textColor, `dark:${darkTextColor}`, fillColor]"
+      :class="[size, textColor, darkTextColor, fillColor]"
       viewBox="0 0 100 101"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -71,6 +71,9 @@ type colorLevel =
 type generalType = 'inherit' | 'current' | 'transparent' | 'black' | 'white'
 type textColor = `text-${colorType}-${colorLevel}` | `text-${generalType}`
 type fillColor = `fill-${colorType}-${colorLevel}` | `fill-${generalType}`
+type darkTextColor =
+  | `dark:text-${colorType}-${colorLevel}`
+  | `dark:text-${generalType}`
 
 const props = defineProps({
   size: {
@@ -82,7 +85,7 @@ const props = defineProps({
     default: 'text-gray-200',
   },
   darkTextColor: {
-    type: String as PropType<textColor>,
+    type: String as PropType<darkTextColor>,
     default: 'text-gray-600',
   },
   fillColor: {

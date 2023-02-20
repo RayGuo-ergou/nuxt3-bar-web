@@ -14,6 +14,7 @@ declare module '@vue/runtime-core' {
     IconFaBrandsInstagram: typeof import('~icons/fa-brands/instagram')['default']
     IconFaBrandsTiktok: typeof import('~icons/fa-brands/tiktok')['default']
     IconFaBrandsYoutube: typeof import('~icons/fa-brands/youtube')['default']
+    IconIcBaselineArrowForwardIos: typeof import('~icons/ic/baseline-arrow-forward-ios')['default']
     IconMaterialSymbolsAlternateEmail: typeof import('~icons/material-symbols/alternate-email')['default']
     IconMaterialSymbolsContactEmergency: typeof import('~icons/material-symbols/contact-emergency')['default']
     IconMaterialSymbolsContactEmergencyOutline: typeof import('~icons/material-symbols/contact-emergency-outline')['default']

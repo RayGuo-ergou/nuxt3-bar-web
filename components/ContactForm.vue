@@ -41,9 +41,9 @@
             <loader
               :size="'xl'"
               class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
-              :text-color="'text-black'"
-              :fill-color="'fill-teal-600'"
-              :dark-text-color="'text-white'"
+              text-color="text-black"
+              fill-color="fill-teal-600"
+              dark-text-color="dark:text-white"
             />
           </div>
           <div class="text-center mb-4">
