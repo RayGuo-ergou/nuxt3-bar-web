@@ -180,6 +180,8 @@ const recaptchaVerified = ref(false)
 const loading = ref(false)
 const recaptchaRef = ref<typeof recaptcha>()
 
+const show = useLocalStorage('modalShow', true)
+
 const onSubmitLetter = () => {
   formSubmitted.value = true
 }
@@ -199,6 +201,10 @@ const onSubmit = async () => {
       phone: phone.value as number,
       email: email.value,
     })
+    // check if show is still true
+    if (show.value) {
+      show.value = false
+    }
     useToast().success('Thank you, You have been subscribed to our newsletter!')
   } catch (error) {
     useToast().error(`${useTRPCError(error)}. Please try again later.`)
