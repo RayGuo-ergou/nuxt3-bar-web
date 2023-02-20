@@ -9,7 +9,7 @@
             alt="Avatar of Jonathan Reinink"
           />
           <span class="ml-2 text-sm font-semibold">Alfian</span>
-          <IconUil:angle-down />
+          <UilAngleDown />
         </div>
         <div
           class="flex space-x-4 border-l ml-6 pl-6 border-gray-900/10 dark:border-gray-50/[0.2]"
@@ -20,7 +20,7 @@
             href="https://github.com/viandwi24/nuxt3-awesome-starter"
             title="Github"
           >
-            <IconMdi:github-face />
+            <MdiGithubFace />
           </Anchor>
         </div>
       </div>
@@ -39,7 +39,7 @@
           title="Github"
           href="https://github.com/viandwi24/nuxt3-awesome-starter"
         >
-          <IconMdi:github-face />
+          <MdiGithubFace />
           <span class="ml-1">Github</span>
         </Button>
         <Button
@@ -54,3 +54,8 @@
     </template>
   </BuilderNavbar>
 </template>
+
+<script lang="ts" setup>
+import UilAngleDown from '~icons/uil/angle-down'
+import MdiGithubFace from '~icons/mdi/github-face'
+</script>

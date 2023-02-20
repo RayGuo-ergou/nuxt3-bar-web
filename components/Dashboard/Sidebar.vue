@@ -1,26 +1,3 @@
-<script lang="ts">
-export default defineComponent({
-  props: {
-    mode: {
-      type: String,
-      default: 'normal',
-    },
-  },
-  setup() {
-    const sidebar = ref(null)
-
-    onMounted(() => {
-      // const { onScroll } = useSticky(sidebar.value, -1000)
-      // setTimeout(() => onScroll(), 50)
-    })
-
-    return {
-      sidebar,
-    }
-  },
-})
-</script>
-
 <template>
   <div
     ref="sidebar"
@@ -46,7 +23,7 @@ export default defineComponent({
                   i !== 1,
               }"
             >
-              <IconUil:apps class="text-xs" />
+              <UilApps class="text-xs" />
             </div>
             <span
               class="text-sm font-semibold capitalize"
@@ -62,3 +39,15 @@ export default defineComponent({
     </div>
   </div>
 </template>
+
+<script lang="ts" setup>
+import UilApps from '~icons/uil/apps'
+
+defineProps({
+  mode: {
+    type: String,
+    default: 'normal',
+  },
+})
+const sidebar = ref(null)
+</script>

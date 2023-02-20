@@ -1,8 +1,11 @@
 <script lang="ts" setup>
-import { AppConfigInput } from '@nuxt/schema'
+import UilBars from '~icons/uil/bars'
+import UilTime from '~icons/uil/times'
+import NuxtLogo from '~icons/simple-icons/nuxtdotjs'
+import MaterialSymbolsDensityMediumRounded from '~icons/material-symbols/density-medium-rounded'
 
 // state
-const app = useAppConfig() as AppConfigInput
+const app = useAppConfig()
 const navbar = ref(null)
 const navBtnClick = ref(false)
 const showDrawer = useState<boolean>('navbar.showDrawer', () => false)
@@ -75,8 +78,8 @@ const toggleOptions = (show?: boolean) => {
                 class="flex items-center text-gray-600 dark:text-gray-300 text-lg"
                 aria-hidden="true"
               >
-                <IconUil:bars v-if="!showDrawer" />
-                <IconUil:times v-else />
+                <UilBars v-if="!showDrawer" />
+                <UilTime v-else />
               </span>
             </button>
           </div>
@@ -89,9 +92,7 @@ const toggleOptions = (show?: boolean) => {
             >
               <span class="sr-only">home</span>
               <span class="flex items-center">
-                <IconSimpleIcons:nuxtdotjs
-                  class="inline-block mr-2 text-lg text-primary-500"
-                />
+                <NuxtLogo class="inline-block mr-2 text-lg text-primary-500" />
                 {{ app.name }}
               </span>
             </NuxtLink>
@@ -113,7 +114,7 @@ const toggleOptions = (show?: boolean) => {
                 class="flex items-center text-gray-600 dark:text-gray-300 text-sm"
                 aria-hidden="true"
               >
-                <IconMaterialSymbolsDensityMediumRounded />
+                <MaterialSymbolsDensityMediumRounded />
               </span>
             </button>
           </div>

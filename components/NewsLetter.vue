@@ -26,7 +26,7 @@
               <div
                 class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none"
               >
-                <IconMaterialSymbolsContactEmergency
+                <MaterialSymbolsContactEmergency
                   class="w-5 h-5 text-gray-500 dark:text-gray-400"
                 />
               </div>
@@ -49,7 +49,7 @@
               <div
                 class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none"
               >
-                <IconMaterialSymbolsContactEmergencyOutline
+                <MaterialSymbolsContactEmergencyOutline
                   class="w-5 h-5 text-gray-500 dark:text-gray-400"
                 />
               </div>
@@ -74,7 +74,7 @@
               <div
                 class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none"
               >
-                <IconMaterialSymbolsPhoneAndroidOutline
+                <MaterialSymbolsPhoneAndroidOutline
                   class="w-5 h-5 text-gray-500 dark:text-gray-400"
                 />
               </div>
@@ -100,7 +100,7 @@
               <div
                 class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none"
               >
-                <IconMaterialSymbolsAlternateEmail
+                <MaterialSymbolsAlternateEmail
                   class="w-5 h-5 text-gray-500 dark:text-gray-400"
                 />
               </div>
@@ -122,7 +122,7 @@
             >
               Next
 
-              <IconIcBaselineArrowForwardIos />
+              <IcBaselineArrowForwardIos />
             </button>
           </div>
           <div
@@ -166,6 +166,12 @@
   </div>
 </template>
 <script lang="ts" setup>
+import MaterialSymbolsContactEmergency from '~icons/material-symbols/contact-emergency'
+import MaterialSymbolsContactEmergencyOutline from '~icons/material-symbols/contact-emergency-outline'
+import MaterialSymbolsPhoneAndroidOutline from '~icons/material-symbols/phone-android-outline'
+import MaterialSymbolsAlternateEmail from '~icons/material-symbols/alternate-email'
+import IcBaselineArrowForwardIos from '~icons/ic/baseline-arrow-forward-ios'
+
 import recaptcha from '~~/components/Recaptcha.vue'
 
 // form refs

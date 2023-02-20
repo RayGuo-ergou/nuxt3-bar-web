@@ -7,6 +7,10 @@ import {
   ListboxOption,
 } from '@headlessui/vue'
 import { IThemeSettingOptions, availableThemes } from '~/utils/theme'
+import UilSum from '~icons/uil/sun'
+import UilMoon from '~icons/uil/moon'
+import UilLaptop from '~icons/uil/laptop'
+import UilClock from '~icons/uil/clock'
 
 // micro compiler
 const props = defineProps({
@@ -36,10 +40,10 @@ const currentStyle = toRef(props, 'type')
         class="transition-colors duration-300"
       >
         <span class="flex justify-center items-center dark:hidden">
-          <IconUil:sun />
+          <UilSum />
         </span>
         <span class="justify-center items-center hidden dark:flex">
-          <IconUil:moon />
+          <UilMoon />
         </span>
       </ListboxButton>
       <ListboxOptions
@@ -58,10 +62,10 @@ const currentStyle = toRef(props, 'type')
           }"
         >
           <span class="text-sm mr-2 flex items-center">
-            <IconUil:sun v-if="theme.key === 'light'" />
-            <IconUil:moon v-else-if="theme.key === 'dark'" />
-            <IconUil:laptop v-else-if="theme.key === 'system'" />
-            <IconUil:clock v-else-if="theme.key === 'realtime'" />
+            <UilSum v-if="theme.key === 'light'" />
+            <UilMoon v-else-if="theme.key === 'dark'" />
+            <UilLaptop v-else-if="theme.key === 'system'" />
+            <UilClock v-else-if="theme.key === 'realtime'" />
           </span>
           {{ theme.text }}
         </ListboxOption>

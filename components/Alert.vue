@@ -1,5 +1,10 @@
 <script lang="ts" setup>
 import { TransitionRoot, TransitionChild } from '@headlessui/vue'
+import MdiCheckCircle from '~icons/mdi/check-circle'
+import BiExclamationCircleFill from '~icons/bi/exclamation-circle-fill'
+import ClarityTimesCircleSolid from '~icons/clarity/times-circle-solid'
+import ClarityTimesLine from '~icons/clarity/times-line'
+
 export type IStyles = 'primary' | 'success' | 'warning' | 'danger'
 
 // props
@@ -71,15 +76,15 @@ const close = () => {
       >
         <div class="flex items-center justify-center">
           <slot name="icon">
-            <IconMdi:checkCircle
+            <MdiCheckCircle
               v-if="selectedType === 'success'"
               :class="`text-2xl ${selectedTextStyle}`"
             />
-            <icon-clarity:times-circle-solid
+            <ClarityTimesCircleSolid
               v-if="selectedType === 'danger'"
               :class="`text-2xl ${selectedTextStyle}`"
             />
-            <icon-bi:exclamation-circle-fill
+            <BiExclamationCircleFill
               v-if="selectedType === 'warning'"
               :class="`text-2xl ${selectedTextStyle}`"
             />
@@ -98,7 +103,7 @@ const close = () => {
             class="text-slate-600 hover:text-red-500 dark:text-gray-400 font-bold"
             @click="close"
           >
-            <icon-clarity:times-line />
+            <ClarityTimesLine />
           </button>
         </div>
       </div>

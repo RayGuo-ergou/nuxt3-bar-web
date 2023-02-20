@@ -1,6 +1,5 @@
 import path from 'path'
 import { createRequire } from 'module'
-import UnpluginComponentsVite from 'unplugin-vue-components/vite'
 import IconsResolver from 'unplugin-icons/resolver'
 
 const require = createRequire(import.meta.url)
@@ -58,20 +57,6 @@ export default defineNuxtConfig({
 
   // auto import components
   components: true,
-
-  // vite plugins
-  vite: {
-    plugins: [
-      UnpluginComponentsVite({
-        dts: true,
-        resolvers: [
-          IconsResolver({
-            prefix: 'Icon',
-          }),
-        ],
-      }),
-    ],
-  },
 
   // app config
   app: {
