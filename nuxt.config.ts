@@ -55,6 +55,10 @@ export default defineNuxtConfig({
     reactivityTransform: false,
   },
 
+  devServer: {
+    host: '0.0.0.0',
+  },
+
   // auto import components
   components: true,
 
