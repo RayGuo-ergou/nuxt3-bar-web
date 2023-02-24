@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import editor from '../node_modules/mavon-editor/src/mavon-editor.vue'
+import toolbarLeft from '../node_modules/mavon-editor/src/components/md-toolbar-left.vue'
 const supabase = useSupabaseClient()
 
 const imageAdd = async (pos: number, file: File) => {
@@ -19,7 +20,8 @@ const imageAdd = async (pos: number, file: File) => {
   console.log(error)
 }
 const test = () => {
-  textEditor.value?.$img2Url('1', 'https://www.baidu.com/img/bd_logo1.png')
+  leftEditor.$imgDel('2')
+  // textEditor.value?.$img2Url('3', 'https://www.baidu.com/img/bd_logo1.png')
 }
 const markdownOption = ref({
   bold: true,
@@ -60,6 +62,9 @@ const markdownOption = ref({
 const handbook = ref('#### how to use mavonEditor in nuxt.js')
 
 const textEditor = ref<InstanceType<typeof editor> | null>(null)
+const leftEditor = textEditor.value?.$refs.toolbar_left as InstanceType<
+  typeof toolbarLeft
+>
 </script>
 <template>
   <div class="mavonEditor">

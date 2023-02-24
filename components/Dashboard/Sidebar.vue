@@ -10,7 +10,7 @@
       <ul>
         <li v-for="item in tables" :key="item">
           <Anchor
-            :to="{ name: 'dashboard' }"
+            :to="{ name: 'dashboard-id', params: { id: item } }"
             class="group flex items-center mb-4 hover:no-underline"
           >
             <div

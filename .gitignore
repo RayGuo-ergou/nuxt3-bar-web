@@ -25,3 +25,4 @@ dist
 # for testing
 test.js 
 test.ts
+test.vue
