@@ -1,4 +1,6 @@
 <script lang="ts" setup>
+const titleRef = ref(null)
+
 defineProps({
   title: {
     type: String,
@@ -22,11 +24,13 @@ defineProps({
     default: '',
   },
 })
+
+useAnimation().slowScroll(4, titleRef)
 </script>
 
 <template>
   <section
-    class="relative bg-cover bg-center bg-no-repeat h-[25vh] md:h-[50vh] lg:h-[75vh]"
+    class="relative bg-cover bg-center bg-no-repeat h-[25vh] md:h-[50vh] lg:h-[75vh] overflow-hidden"
     :style="`background-image: url('${image}')`"
   >
     <div
@@ -36,7 +40,7 @@ defineProps({
     <div
       class="relative mx-auto max-w-xl top-1/3 sm:px-6 lg:px-8 lg:top-2/3 lg:left-10"
     >
-      <div class="max-w-xl text-center sm:text-left">
+      <div ref="titleRef" class="max-w-xl text-center sm:text-left">
         <h1 class="text-3xl font-extrabold sm:text-5xl text-gray-700">
           {{ title }}
           <strong class="block font-extrabold text-primary-700">
