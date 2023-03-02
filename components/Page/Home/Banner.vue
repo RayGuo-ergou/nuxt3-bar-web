@@ -102,19 +102,19 @@ import {
 const videos = [
   {
     title: 'First Slide',
-    src: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4',
+    src: './videos/first-slide.mp4',
   },
   {
     title: 'Second Slide',
-    src: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4',
+    src: './videos/first-slide.mp4',
   },
   {
     title: 'Third Slide',
-    src: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4',
+    src: './videos/first-slide.mp4',
   },
   {
     title: 'Fourth Slide',
-    src: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4',
+    src: './videos/first-slide.mp4',
   },
 ]
 onMounted(() => {
