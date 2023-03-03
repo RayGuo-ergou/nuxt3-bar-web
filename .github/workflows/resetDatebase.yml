@@ -1,22 +1,20 @@
-name: sync documents from database
+# for development only
+# maybe remove when the project is finished
+# because when the app is on production, the database should not be reset
+
+name: Reset Database
+# on prisma file changes
 on:
   push:
     branches:
-      - main
-
-env:
-  GITHUB_NAME: RayGuo-ergou
-  GITHUB_EMAIL: ma2808203259@hotmail.com
+      - dev
+    paths:
+      - prisma/schema.prisma
 
 jobs:
-  install:
-    name: Install dependencies
+  resetDatabase:
     runs-on: ubuntu-latest
     steps:
-      - name: update openssl
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y openssl
       - name: Checkout repo
         uses: actions/checkout@v3
       - name: Setup Node
@@ -42,24 +40,10 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pnpm-
       - name: Install and Build 🔧 # This example project is built using npm and outputs the result to the 'build' folder. Replace with the commands required to build your project, or remove this step entirely if your site is pre-built.
-        run: |
-          pnpm install -g typescript ts-node @types/node prisma @prisma/client
+        run: pnpm install -g typescript ts-node @types/node prisma @prisma/client
       - name: create .env
         run: echo "DATABASE_URL=${{ secrets.DATABASE_URL }}" >> .env
       - name: remove import nuxt tsconfig.json
         run: sed -i '/extends/d' tsconfig.json
-      - name: deploy database
-        run: |
-          pnpm database:deploy
-      - name: sync documents
-        run: |
-          chmod +x ./scripts/syncMDwithDB.bash
-          bash ./scripts/syncMDwithDB.bash
-        shell: bash
-      - name: commit
-        run: |
-          git config --local user.email "${{ env.GITHUB_EMAIL }}"
-          git config --local user.name "${{ env.GITHUB_NAME }}"
-          git add ./content
-          git commit -m 'update documents' || echo "nothing to commit"
-          git push || echo "nothing to push"
+      - name: reset database
+        run: pnpm database:reset
