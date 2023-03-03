@@ -16,6 +16,17 @@ enum DocumentType {
   OLD
 }
 
+enum Location {
+  MELBOURNE
+  SYDNEY
+  BRISBANE
+  ADELAIDE
+  PERTH
+  HOBART
+  DARWIN
+  CANBERRA
+}
+
 // feedback type
 enum FeedbackType {
   CONTACT
@@ -62,6 +73,8 @@ model document {
   type         DocumentType @default(NEW)
   thumbnail    String
   externalLink String?
+  date         DateTime
+  location     String
   createdAt    DateTime     @default(now())
   updatedAt    DateTime     @updatedAt
 }
