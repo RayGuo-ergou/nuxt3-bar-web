@@ -25,6 +25,14 @@ enum Location {
   HOBART
   DARWIN
   CANBERRA
+  GOLD_COAST
+  NEWCASTLE
+  SUNSHINE_COAST
+  CENTRAL_COAST
+  WOLLONGONG
+  GEELONG
+  TOWNSVILLE
+  CAIRNS
 }
 
 // feedback type
@@ -74,7 +82,7 @@ model document {
   thumbnail    String
   externalLink String?
   date         DateTime
-  location     String
+  location     Location
   createdAt    DateTime     @default(now())
   updatedAt    DateTime     @updatedAt
 }

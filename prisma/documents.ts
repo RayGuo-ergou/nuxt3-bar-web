@@ -1,4 +1,4 @@
-import { DocumentType } from '@prisma/client'
+import { DocumentType, Location } from '@prisma/client'
 export const documents = [
   {
     title: 'New Doc',
@@ -10,6 +10,8 @@ export const documents = [
     author: 'admin',
     type: DocumentType.NEW,
     thumbnail: 'https://picsum.photos/200/300',
+    location: Location.ADELAIDE,
+    date: new Date('2023-01-01'),
   },
   {
     title: 'Old Doc',
@@ -20,6 +22,8 @@ export const documents = [
     author: 'admin',
     type: DocumentType.OLD,
     thumbnail: 'https://picsum.photos/200/300',
+    location: Location.ADELAIDE,
+    date: new Date('2023-02-02'),
   },
   {
     title: 'New Doc',
@@ -30,6 +34,8 @@ export const documents = [
     author: 'admin',
     type: DocumentType.NEW,
     thumbnail: 'https://picsum.photos/200/300',
+    location: Location.MELBOURNE,
+    date: new Date('2023-03-01'),
   },
   {
     title: 'Old Doc',
@@ -40,5 +46,7 @@ export const documents = [
     author: 'admin',
     type: DocumentType.OLD,
     thumbnail: 'https://picsum.photos/200/300',
+    location: Location.MELBOURNE,
+    date: new Date('2023-02-06'),
   },
 ]
