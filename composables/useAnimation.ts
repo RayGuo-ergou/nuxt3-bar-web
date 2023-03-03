@@ -26,6 +26,7 @@ export const useAnimation = () => {
       window.addEventListener('scroll', () => {
         const windowScrolled =
           window.pageYOffset || document.documentElement.scrollTop
+        if (!element.value) return
         element.value.style.transform = `translateY(${
           windowScrolled / times
         }px)`

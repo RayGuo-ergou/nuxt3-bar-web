@@ -1,47 +1,11 @@
 <script setup lang="ts">
 import { PropType } from 'vue'
-
-// list data type
-interface CardInfo {
-  title: string
-  description: string
-  thumbnail: string
-  author: string
-  date: Date
-  _path: string
-  externalLink: string
-}
+import { CardInfo } from '~~/types/card'
 
 defineProps({
   list: {
     type: Array as PropType<CardInfo[]> | [],
     required: true,
-    // default: () => [
-    //   {
-    //     title: 'Noteworthy technology acquisitions 2021',
-    //     description:
-    //       'Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.',
-    //     thumbnail: 'https://flowbite.com/docs/images/blog/image-1.jpg',
-    //   },
-    //   {
-    //     title: 'Noteworthy technology acquisitions 2021',
-    //     description:
-    //       'Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.',
-    //     thumbnail: 'https://flowbite.com/docs/images/blog/image-1.jpg',
-    //   },
-    //   {
-    //     title: 'Noteworthy technology acquisitions 2021',
-    //     description:
-    //       'Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.',
-    //     thumbnail: 'https://flowbite.com/docs/images/blog/image-1.jpg',
-    //   },
-    //   {
-    //     title: 'Noteworthy technology acquisitions 2021',
-    //     description:
-    //       'Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.',
-    //     thumbnail: 'https://flowbite.com/docs/images/blog/image-1.jpg',
-    //   },
-    // ],
   },
 })
 </script>
