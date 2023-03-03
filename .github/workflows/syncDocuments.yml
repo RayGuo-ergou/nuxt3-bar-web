@@ -1,8 +1,12 @@
 name: sync documents from database
 on:
-  push:
-    branches:
-      - main
+  workflow_run:
+    workflows: ['Reset Database']
+    types:
+      - completed
+
+  schedule:
+    - cron: '0 0 * * *'
 
 env:
   GITHUB_NAME: RayGuo-ergou
