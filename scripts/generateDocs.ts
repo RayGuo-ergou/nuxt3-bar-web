@@ -5,29 +5,14 @@ import { PrismaClient, DocumentType, document } from '@prisma/client'
 // Create a new Prisma Client instance
 const prisma = new PrismaClient()
 
-const convertTimeZone = (date: Date): string => {
-  return new Date(date).toLocaleString('en-US', {
-    timeZone: 'Australia/Sydney',
-  })
-}
-
 /**
  * This function will take a document and generate a markdown file
  * @param {document} doc
  * @returns {string} markdown file
  */
 const generateMD = (doc: document): string => {
-  //
-  const docHeaders = {
-    title: doc.title,
-    description: doc.description,
-    draft: doc.draft,
-    navigation: doc.navigation,
-    date: convertTimeZone(doc.createdAt),
-    author: doc.author,
-    thumbnail: doc.thumbnail,
-    externalLink: doc.externalLink,
-  }
+  const { content, ...docHeaders } = doc
+
   const docString = JSON.stringify(docHeaders)
 
   const unquoted = docString
@@ -42,7 +27,7 @@ const generateMD = (doc: document): string => {
     // add one space after each colon except for URL scheme
     .replace(/:(?!\/\/)/g, ': ')
 
-  const result = `---\n${unquoted}\n---\n${doc.content}`
+  const result = `---\n${unquoted}\n---\n${content}`
   return result
 }
 
@@ -52,7 +37,7 @@ const generateMD = (doc: document): string => {
  * @param {string} dir
  * @returns {void}
  */
-const generateFiles = (docs: document[], dir: string) => {
+const generateFiles = (docs: document[], dir: string): void => {
   const filePath = path.join(__dirname, `../content/${dir}`)
   docs.forEach((element) => {
     const temp = generateMD(element)
