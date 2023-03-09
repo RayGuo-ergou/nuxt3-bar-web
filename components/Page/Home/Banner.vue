@@ -20,6 +20,7 @@
             loop
             disablePictureInPicture
             playsinline
+            preload="none"
           />
         </div>
       </template>
