@@ -20,6 +20,7 @@ export default defineNuxtConfig({
   alias: {
     '.prisma/client/index-browser': prismaIndexBrowser,
   },
+
   // server side rendering mode
   ssr: true,
 
@@ -93,5 +94,9 @@ export default defineNuxtConfig({
     mailchimp_key: process.env.MAILCHIMP_API_KEY,
     mailchimp_dc: process.env.MAILCHIMP_DC,
     mailchimp_list: process.env.MAILCHIMP_LIST_ID,
+  },
+
+  devtools: {
+    enabled: true,
   },
 })
