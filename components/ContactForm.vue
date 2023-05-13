@@ -8,8 +8,8 @@
   plugins: [require('@tailwindcss/forms')]
 -->
 
-  <section class="bg-white dark:bg-gray-900">
-    <div class="mx-auto max-w-screen-2xl px-4 py-4 sm:px-6 lg:px-8">
+  <section class="bg-white dark:bg-gray-900 max-w-screen-2.5xl mx-auto">
+    <div class="py-4">
       <div class="grid grid-cols-1 gap-x-16 gap-y-8 lg:grid-cols-5">
         <div class="lg:col-span-2 lg:py-12">
           <p class="max-w-xl text-lg">
