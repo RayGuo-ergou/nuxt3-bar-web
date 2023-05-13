@@ -48,7 +48,6 @@
     "@trpc/server": "^10.26.0",
     "@types/node": "^20.1.4",
     "@vueuse/components": "^10.1.2",
-    "@vueuse/core": "^10.1.2",
     "@vueuse/nuxt": "^10.1.2",
     "autoprefixer": "^10.4.14",
     "eslint": "^8.40.0",
