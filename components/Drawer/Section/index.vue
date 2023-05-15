@@ -114,15 +114,6 @@ onMountedInterval(['dropdownMenu', 'dropdownButton'], () => {
     $triggerEl,
     options
   )
-  $triggerEl.addEventListener('click', () => {
-    dropdown.toggle()
-  })
-
-  /*
-   * targetEl: required
-   * triggerEl: required
-   * options: optional
-   */
 })
 </script>
 
