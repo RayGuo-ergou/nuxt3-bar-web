@@ -10,7 +10,7 @@
           data-drawer-show="drawer-navigation"
           aria-controls="drawer-navigation"
         >
-          Show navigation
+          Show Filter
         </button>
       </div>
     </slot>
