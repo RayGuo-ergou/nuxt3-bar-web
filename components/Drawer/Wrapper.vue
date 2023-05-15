@@ -74,6 +74,15 @@ onMountedInterval(['drawer-navigation', 'show-drawer'], () =>
     const options: DrawerOptions = {
       onHide: () => {
         console.log('drawer is hidden')
+
+        // make sure to remove the backdrop element
+        // get element that has attribute drawer-backdrop
+        const $backdrop: HTMLElement =
+          document.querySelector('[drawer-backdrop]')!
+        // if element exists, then remove it
+        if ($backdrop) {
+          $backdrop.remove()
+        }
       },
       onShow: () => {
         console.log('drawer is shown')
@@ -95,9 +104,6 @@ onMountedInterval(['drawer-navigation', 'show-drawer'], () =>
       // show the drawer
       drawer.toggle()
     })
-
-    // show the drawer
-    drawer.show()
   }
 )
 </script>
