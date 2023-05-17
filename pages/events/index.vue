@@ -14,6 +14,9 @@ useHead(() => ({
     <DrawerWrapper title="Filter">
       <DrawerSectionWrapper>
         <DrawerSection drop-down name="test" />
+        <DrawerSection :drop-down="false" name="test" />
+        <DrawerSection drop-down name="test" />
+        <DrawerSection :drop-down="false" name="test" />
       </DrawerSectionWrapper>
     </DrawerWrapper>
 

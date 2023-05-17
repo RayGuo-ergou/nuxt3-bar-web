@@ -136,7 +136,6 @@
 
 <script setup lang="ts">
 import { FeedbackType } from '@prisma/client'
-import { PropType } from 'vue'
 import recaptcha from '~~/components/Recaptcha.vue'
 
 const name = ref('')
@@ -147,12 +146,9 @@ const recaptchaPass = ref<boolean>(false)
 const showLoader = ref<boolean>(false)
 const recaptchaRef = ref<typeof recaptcha>()
 
-const props = defineProps({
-  type: {
-    type: String as PropType<FeedbackType>,
-    required: true,
-  },
-})
+const props = defineProps<{
+  type: FeedbackType
+}>()
 
 // a computed based on props.type return different strings
 const title = computed(() => {

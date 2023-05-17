@@ -1,13 +1,9 @@
 <script setup lang="ts">
-import { PropType } from 'vue'
-import { CardInfo } from '~~/types/card'
+import type { CardInfo } from '~~/types/card'
 
-defineProps({
-  list: {
-    type: Array as PropType<CardInfo[]> | [],
-    required: true,
-  },
-})
+defineProps<{
+  list: CardInfo[] | []
+}>()
 </script>
 <template>
   <div

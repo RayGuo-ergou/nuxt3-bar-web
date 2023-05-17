@@ -22,8 +22,7 @@
 </template>
 
 <script setup lang="ts">
-import { PropType } from 'vue'
-
+import type { textColor, fillColor, darkTextColor } from '~~/types/tailwind'
 enum loaderSize {
   'sm' = 4,
   'md' = 6,
@@ -31,68 +30,20 @@ enum loaderSize {
   'xl' = 10,
 }
 
-type colorType =
-  | 'slate'
-  | 'gray'
-  | 'zinc'
-  | 'neutral'
-  | 'stone'
-  | 'red'
-  | 'orange'
-  | 'amber'
-  | 'yellow'
-  | 'lime'
-  | 'green'
-  | 'emerald'
-  | 'teal'
-  | 'cyan'
-  | 'sky'
-  | 'blue'
-  | 'indigo'
-  | 'violet'
-  | 'purple'
-  | 'fuchsia'
-  | 'pink'
-  | 'rose'
-  | 'primary'
-
-type colorLevel =
-  | '50'
-  | '100'
-  | '200'
-  | '300'
-  | '400'
-  | '500'
-  | '600'
-  | '700'
-  | '800'
-  | '900'
-
-type generalType = 'inherit' | 'current' | 'transparent' | 'black' | 'white'
-type textColor = `text-${colorType}-${colorLevel}` | `text-${generalType}`
-type fillColor = `fill-${colorType}-${colorLevel}` | `fill-${generalType}`
-type darkTextColor =
-  | `dark:text-${colorType}-${colorLevel}`
-  | `dark:text-${generalType}`
-
-const props = defineProps({
-  size: {
-    type: String as PropType<keyof typeof loaderSize>,
-    default: 'md',
-  },
-  textColor: {
-    type: String as PropType<textColor>,
-    default: 'text-gray-200',
-  },
-  darkTextColor: {
-    type: String as PropType<darkTextColor>,
-    default: 'text-gray-600',
-  },
-  fillColor: {
-    type: String as PropType<fillColor>,
-    default: 'fill-blue-600',
-  },
-})
+const props = withDefaults(
+  defineProps<{
+    size: keyof typeof loaderSize
+    textColor: textColor
+    darkTextColor: darkTextColor
+    fillColor: fillColor
+  }>(),
+  {
+    size: 'md',
+    textColor: 'text-gray-200',
+    darkTextColor: 'dark:text-gray-600',
+    fillColor: 'fill-blue-600',
+  }
+)
 const size = computed(() => {
   return 'w-' + loaderSize[props.size] + ' h-' + loaderSize[props.size]
 })

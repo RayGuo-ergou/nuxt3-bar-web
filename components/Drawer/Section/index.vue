@@ -69,16 +69,21 @@
 </template>
 
 <script setup lang="ts">
-defineProps({
-  dropDown: {
-    type: Boolean,
-    default: false,
-  },
-  name: {
-    type: String,
-    required: true,
-  },
-})
+/**
+ * XXX: use Reactive Props Destructure in future(curren experimental feature)
+ * https://blog.vuejs.org/posts/vue-3-3#reactive-props-destructure
+ *
+ * withDefaults was introduced in Vue 3.2
+ */
+withDefaults(
+  defineProps<{
+    dropDown?: boolean
+    name: string
+  }>(),
+  {
+    dropDown: false,
+  }
+)
 
 const show = ref(false)
 </script>
