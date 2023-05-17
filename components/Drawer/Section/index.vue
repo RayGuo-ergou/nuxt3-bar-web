@@ -10,10 +10,10 @@
   </li>
   <li v-else>
     <button
-      id="dropdownButton"
       type="button"
       class="flex items-center w-full p-2 text-base font-normal text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
       aria-controls="dropdown-example"
+      @click="show = !show"
     >
       <svg
         aria-hidden="true"
@@ -42,7 +42,7 @@
         ></path>
       </svg>
     </button>
-    <ul id="dropdownMenu" class="py-2 space-y-2">
+    <ul v-show="show" class="py-2 space-y-2">
       <li>
         <a
           href="#"
@@ -69,10 +69,6 @@
 </template>
 
 <script setup lang="ts">
-import { Dropdown } from 'flowbite'
-import type { DropdownOptions, DropdownInterface } from 'flowbite'
-import { onMountedInterval } from '~~/utils/flowbite'
-
 defineProps({
   dropDown: {
     type: Boolean,
@@ -84,37 +80,7 @@ defineProps({
   },
 })
 
-onMountedInterval(['dropdownMenu', 'dropdownButton'], () => {
-  // set the dropdown menu element
-  const $targetEl: HTMLElement = document.getElementById(
-    'dropdownMenu'
-  ) as HTMLElement
-
-  // set the element that trigger the dropdown menu on click
-  const $triggerEl: HTMLElement = document.getElementById(
-    'dropdownButton'
-  ) as HTMLElement
-
-  // options with default values
-  const options: DropdownOptions = {
-    placement: 'bottom-start',
-    onHide: () => {
-      console.log('dropdown has been hidden')
-    },
-    onShow: () => {
-      console.log('dropdown has been shown')
-    },
-    onToggle: () => {
-      console.log('dropdown has been toggled')
-    },
-  }
-
-  const dropdown: DropdownInterface = new Dropdown(
-    $targetEl,
-    $triggerEl,
-    options
-  )
-})
+const show = ref(false)
 </script>
 
 <style scoped></style>
